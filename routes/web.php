@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\CustomerController;
 use App\Http\Controllers\Backend\EmployeeController;
+use App\Http\Controllers\Backend\SupplierController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,9 +59,15 @@ Route::controller(CustomerController::class)->group(function () {
     Route::post('/store/customer', 'StoreCustomer')->name('store.customer');
     Route::get('/edit/customer/{$id}', 'EditCustomer')->name('edit.customer');
     Route::post('/update/customer', 'UpdateCustomer')->name('customer.update');
+});
 
 
 
 
-    
+
+Route::controller(SupplierController::class)->group(function () {
+    Route::get('/all/supplier', 'AllSupplier')->name('all.supplier');
+    Route::get('/add/supplier', 'AddSupplier')->name('add.supplier');
+    Route::post('/store/supplier', 'StoreSupplier')->name('supplier.store');
+
 });
