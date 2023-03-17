@@ -17,7 +17,7 @@
 
                         </ol>
                     </div>
-                    <h4 class="page-title">Add Supplier</h4>
+                    <h4 class="page-title">Edit Supplier</h4>
                 </div>
             </div>
         </div>
@@ -39,7 +39,7 @@
                                 <input type="hidden" name="id" value="{{ $supplier->id }}"> 
 
 
-                                <h5 class="mb-4 text-uppercase"><i class="mdi mdi-account-circle me-1"></i> Add Supplier</h5>
+                                <h5 class="mb-4 text-uppercase"><i class="mdi mdi-account-circle me-1"></i> Edit Supplier</h5>
 
                                 <div class="row">
 
