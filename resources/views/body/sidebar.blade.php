@@ -78,6 +78,30 @@
                 </li>
 
                 <li>
+                    <a href="#product" data-bs-toggle="collapse">
+                        <i class="mdi mdi-email-multiple-outline"></i>
+                        <span> Products </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="product">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{ route('all.product') }}">All Product </a>
+                            </li>
+
+                            <li>
+                                <a href="">Add Product </a>
+                            </li>
+                            <li>
+                                <a href="">Import Product </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </li>
+
+
+                <li>
                     <a href="#sidebarTickets" data-bs-toggle="collapse">
                         <i class="mdi mdi-lifebuoy"></i>
                         <span> Tickets </span>
