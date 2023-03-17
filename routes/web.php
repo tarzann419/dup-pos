@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\CustomerController;
 use App\Http\Controllers\Backend\EmployeeController;
 use App\Http\Controllers\Backend\SupplierController;
 use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -89,5 +90,6 @@ Route::controller(CategoryController::class)->group(function () {
 
 Route::controller(ProductController::class)->group(function () {
     Route::get('/all/product', 'AllProduct')->name('all.product');
+    Route::get('/add/product', 'AddProduct')->name('add.product');
     
 });
