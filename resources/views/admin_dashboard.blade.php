@@ -3,7 +3,7 @@
 
 <head>
 
-<meta charset="utf-8" />
+    <meta charset="utf-8" />
     <title>Dashboard | UBold - Responsive Admin Dashboard Template</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
@@ -114,8 +114,8 @@
     <!-- App js-->
     <script src="{{ asset('backend/assets/js/app.min.js') }}"></script>
 
-        <!-- datatables js -->
-        <script src="{{ asset('backend/assets/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+    <!-- datatables js -->
+    <script src="{{ asset('backend/assets/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('backend/assets/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js') }}"></script>
     <script src="{{ asset('backend/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
     <script src="{{ asset('backend/assets/libs/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js') }}"></script>
@@ -134,9 +134,18 @@
     <script src="{{ asset('backend/assets/js/pages/datatables.init.js') }}"></script>
 
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="{{ asset('backend/assets/js/code.js') }}"></script>
 
-    
-<!-- toaster js -->
+    <script src="{{ asset('backend/assets/js/validate.min.js') }}"></script>
+
+
+
+
+
+
+
+    <!-- toaster js -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
     <script>

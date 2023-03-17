@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\CustomerController;
 use App\Http\Controllers\Backend\EmployeeController;
 use App\Http\Controllers\Backend\SupplierController;
+use App\Http\Controllers\Backend\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,5 +74,18 @@ Route::controller(SupplierController::class)->group(function () {
     Route::post('/update/supplier','UpdateSupplier')->name('supplier.update');
     Route::get('/delete/supplier/{$id}', 'DeleteSupplier')->name('delete.supplier');
     // Route::get('/details/supplier/{$id}', 'DetailsSupplier')->name('details.supplier');
+
+});
+Route::controller(CategoryController::class)->group(function () {
+    Route::get('/all/category', 'AllCategory')->name('all.category');
+    Route::post('/store/category', 'StoreCategory')->name('category.store');
+    Route::get('/edit/category/{$id}', 'EditCategory')->name('edit.category');
+    Route::post('/update/category', 'UpdateCategory')->name('category.update');
+    Route::get('/delete/category/{$id}', 'DeleteCategory')->name('delete.category');
+
+
+
+
+
 
 });
