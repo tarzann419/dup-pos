@@ -25,4 +25,8 @@ class ProductController extends Controller
         return view('backend.product.add_product', compact('category', 'supplier'));
 
     }
+
+    public function StoreProduct(Request $request){
+        
+    }
 }
