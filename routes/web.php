@@ -59,7 +59,7 @@ Route::controller(CustomerController::class)->group(function () {
     Route::get('/all/customer', 'AllCustomer')->name('all.customer');
     Route::get('/add/customer', 'AddCustomer')->name('add.customer');
     Route::post('/store/customer', 'StoreCustomer')->name('store.customer');
-    Route::get('/edit/customer/{$id}', 'EditCustomer')->name('edit.customer');
+    Route::get('/edit/customer/{id}', 'EditCustomer')->name('edit.customer');
     Route::post('/update/customer', 'UpdateCustomer')->name('customer.update');
 });
 
@@ -71,9 +71,9 @@ Route::controller(SupplierController::class)->group(function () {
     Route::get('/all/supplier', 'AllSupplier')->name('all.supplier');
     Route::get('/add/supplier', 'AddSupplier')->name('add.supplier');
     Route::post('/store/supplier', 'StoreSupplier')->name('supplier.store');
-    Route::get('/edit/supplier/{$id}', 'EditSupplier')->name('edit.supplier');
+    Route::get('/edit/supplier/{id}', 'EditSupplier')->name('edit.supplier');
     Route::post('/update/supplier','UpdateSupplier')->name('supplier.update');
-    Route::get('/delete/supplier/{$id}', 'DeleteSupplier')->name('delete.supplier');
+    Route::get('/delete/supplier/{id}', 'DeleteSupplier')->name('delete.supplier');
     // Route::get('/details/supplier/{$id}', 'DetailsSupplier')->name('details.supplier');
 
 });
@@ -81,9 +81,9 @@ Route::controller(SupplierController::class)->group(function () {
 Route::controller(CategoryController::class)->group(function () {
     Route::get('/all/category', 'AllCategory')->name('all.category');
     Route::post('/store/category', 'StoreCategory')->name('category.store');
-    Route::get('/edit/category/{$id}', 'EditCategory')->name('edit.category');
+    Route::get('/edit/category/{id}', 'EditCategory')->name('edit.category');
     Route::post('/update/category', 'UpdateCategory')->name('category.update');
-    Route::get('/delete/category/{$id}', 'DeleteCategory')->name('delete.category');
+    Route::get('/delete/category/{id}', 'DeleteCategory')->name('delete.category');
 });
 
 
@@ -92,9 +92,10 @@ Route::controller(ProductController::class)->group(function () {
     Route::get('/all/product', 'AllProduct')->name('all.product');
     Route::get('/add/product', 'AddProduct')->name('add.product');
     Route::post('/store/product', 'StoreProduct')->name('product.store');
-    Route::get('/edit/product/{$id}', 'EditProduct')->name('edit.product');
+    Route::get('/edit/product/{id}', 'EditProduct')->name('edit.product');
     Route::post('/update/product', 'UpdateProduct')->name('product.update');
-    Route::get('/delete/product/{$id}', 'DeleteProduct')->name('delete.product');
+    Route::get('/delete/product/{id}', 'DeleteProduct')->name('delete.product');
+    Route::get('/barcode/product/{id}', 'BarcodeProduct')->name('barcode.product');
 
 
 
