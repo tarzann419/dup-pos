@@ -10,6 +10,9 @@ use App\Models\Category;
 use App\Models\Supplier;
 use Intervention\Image\Facades\Image;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
+use App\Exports\ProductExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class ProductController extends Controller
 {
@@ -154,6 +157,15 @@ class ProductController extends Controller
     public function BarcodeProduct($id){
         $product = Product::findOrFail($id);
         return view('backend.product.barcode_product', compact('product'));
+    }
+
+    public function ImportProduct(){
+        return view('backend.product.import_product');
+    }
+
+    public function Export(){
+        //create a new object
+        return Excel::download(new ProductExport, 'product.xlsx');
     }
 
 
