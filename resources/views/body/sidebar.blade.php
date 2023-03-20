@@ -113,7 +113,7 @@
                                 <a href="{{ route('add.expense') }}">Add Expense</a>
                             </li>
                             <li>
-                                <a href="tickets-detail.html">Today Expense</a>
+                                <a href="{{ route('today.expense') }}">Today Expense</a>
                             </li>
                             <li>
                                 <a href="tickets-detail.html">Monthly Expense</a>
