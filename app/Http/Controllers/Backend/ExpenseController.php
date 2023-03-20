@@ -46,4 +46,24 @@ class ExpenseController extends Controller
         $expense = Expense::findOrFail($id);
         return view('backend.expense.edit_expense', compact('expense'));
     }
+
+    public function UpdateExpense(Request $request){
+        $expense_id = $request->id;
+
+        Expense::findOrFail($expense_id)->update([
+            'details' => $request->details,
+            'amount' => $request->amount,
+            'date' => $request->date,
+            'month' => $request->month,
+            'year' => $request->year,
+            'created_at' => Carbon::now(),
+        ]);
+
+        $notification = array(
+            'message' => 'Expense Updated Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('today.expense')->with($notification);
+    }
 }
