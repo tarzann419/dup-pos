@@ -36,22 +36,21 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 
 
 // Admin Controller Route
 
 Route::controller(AdminController::class)->group(function () {
-    Route::middleware(['auth'])->group(function(){
-    Route::get('/admin/logout', 'AdminDestroy')->name('admin.logout');
-    Route::get('/logout', 'AdminLogoutPage')->name('admin.logout.page');
-    Route::get('/admin/profile', 'AdminProfilePage')->name('admin.profile');
-    Route::post('/admin/profile/store', 'AdminProfileStore')->name('admin.profile.store');
-    Route::get('/admin/change/password', 'ChangePassword')->name('change.password');
-    Route::post('/admin/update/password', 'UpdatePassword')->name('update.password');
-
-});
+    Route::middleware(['auth'])->group(function () {
+        Route::get('/admin/logout', 'AdminDestroy')->name('admin.logout');
+        Route::get('/logout', 'AdminLogoutPage')->name('admin.logout.page');
+        Route::get('/admin/profile', 'AdminProfilePage')->name('admin.profile');
+        Route::post('/admin/profile/store', 'AdminProfileStore')->name('admin.profile.store');
+        Route::get('/admin/change/password', 'ChangePassword')->name('change.password');
+        Route::post('/admin/update/password', 'UpdatePassword')->name('update.password');
+    });
 });
 
 
@@ -75,7 +74,7 @@ Route::controller(SupplierController::class)->group(function () {
     Route::get('/add/supplier', 'AddSupplier')->name('add.supplier');
     Route::post('/store/supplier', 'StoreSupplier')->name('supplier.store');
     Route::get('/edit/supplier/{id}', 'EditSupplier')->name('edit.supplier');
-    Route::post('/update/supplier','UpdateSupplier')->name('supplier.update');
+    Route::post('/update/supplier', 'UpdateSupplier')->name('supplier.update');
     Route::get('/delete/supplier/{id}', 'DeleteSupplier')->name('delete.supplier');
     // Route::get('/details/supplier/{$id}', 'DetailsSupplier')->name('details.supplier');
 
@@ -106,11 +105,6 @@ Route::controller(ProductController::class)->group(function () {
     Route::get('/import/product', 'ImportProduct')->name('import.product');
     Route::get('/export', 'Export')->name('export');
     Route::post('/import', 'Import')->name('import');
-
-
-
-
-    
 });
 
 
@@ -122,5 +116,5 @@ Route::controller(ExpenseController::class)->group(function () {
     Route::get('/today/expense', 'TodayExpense')->name('today.expense');
     Route::get('/edit/expense/{id}', 'EditExpense')->name('edit.expense');
     Route::post('/update/expense', 'UpdateExpense')->name('expense.update');
-    
+    Route::get('/month/expense', 'MonthExpense')->name('month.expense');
 });

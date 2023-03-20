@@ -66,4 +66,11 @@ class ExpenseController extends Controller
 
         return redirect()->route('today.expense')->with($notification);
     }
+
+
+    public function MonthExpense(){
+        $month = date("F");
+        $monthexpense = Expense::where('month',$month)->get();
+        return view('backend.expense.month_expense',compact('monthexpense'));
+    }
 }
