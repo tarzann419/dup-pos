@@ -104,16 +104,22 @@
                 <li>
                     <a href="#sidebarTickets" data-bs-toggle="collapse">
                         <i class="mdi mdi-lifebuoy"></i>
-                        <span> Tickets </span>
+                        <span> Expenses </span>
                         <span class="menu-arrow"></span>
                     </a>
                     <div class="collapse" id="sidebarTickets">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="tickets-list.html">List</a>
+                                <a href="{{ route('add.expense') }}">Add Expense</a>
                             </li>
                             <li>
-                                <a href="tickets-detail.html">Detail</a>
+                                <a href="tickets-detail.html">Today Expense</a>
+                            </li>
+                            <li>
+                                <a href="tickets-detail.html">Monthly Expense</a>
+                            </li>
+                            <li>
+                                <a href="tickets-detail.html">Yearly Expense</a>
                             </li>
                         </ul>
                     </div>

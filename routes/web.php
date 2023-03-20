@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\EmployeeController;
 use App\Http\Controllers\Backend\SupplierController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\ProductController;
+use App\Http\Controllers\Backend\ExpenseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,7 +40,7 @@ require __DIR__.'/auth.php';
 
 
 
-
+// Admin Controller Route
 
 Route::controller(AdminController::class)->group(function () {
     Route::middleware(['auth'])->group(function(){
@@ -54,6 +55,7 @@ Route::controller(AdminController::class)->group(function () {
 });
 
 
+// Customer Controller Route
 
 Route::controller(CustomerController::class)->group(function () {
     Route::get('/all/customer', 'AllCustomer')->name('all.customer');
@@ -66,6 +68,7 @@ Route::controller(CustomerController::class)->group(function () {
 
 
 
+// Supplier Controller Route
 
 Route::controller(SupplierController::class)->group(function () {
     Route::get('/all/supplier', 'AllSupplier')->name('all.supplier');
@@ -78,6 +81,8 @@ Route::controller(SupplierController::class)->group(function () {
 
 });
 
+// Category Controller Route
+
 Route::controller(CategoryController::class)->group(function () {
     Route::get('/all/category', 'AllCategory')->name('all.category');
     Route::post('/store/category', 'StoreCategory')->name('category.store');
@@ -87,7 +92,7 @@ Route::controller(CategoryController::class)->group(function () {
 });
 
 
-
+// Product Controller Route
 Route::controller(ProductController::class)->group(function () {
     Route::get('/all/product', 'AllProduct')->name('all.product');
     Route::get('/add/product', 'AddProduct')->name('add.product');
@@ -105,5 +110,13 @@ Route::controller(ProductController::class)->group(function () {
 
 
 
+    
+});
+
+
+
+
+Route::controller(ExpenseController::class)->group(function () {
+    Route::get('/add/expense', 'AddExpense')->name('add.expense');
     
 });
