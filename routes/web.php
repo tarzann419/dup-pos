@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\SupplierController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ExpenseController;
+use App\Http\Controllers\Backend\PosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -118,4 +119,11 @@ Route::controller(ExpenseController::class)->group(function () {
     Route::post('/update/expense', 'UpdateExpense')->name('expense.update');
     Route::get('/month/expense', 'MonthExpense')->name('month.expense');
     Route::get('/year/expense', 'YearExpense')->name('year.expense');
+});
+
+
+
+Route::controller(PosController::class)->group(function () {
+    Route::get('/pos', 'Pos')->name('pos');
+    
 });
