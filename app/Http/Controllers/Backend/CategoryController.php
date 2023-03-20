@@ -40,7 +40,7 @@ class CategoryController extends Controller
     public function UpdateCategory(Request $request)
     {
         $category_id = $request->id;
-        Category::findorFail()->update([
+        Category::findorFail($category_id)->update([
             'category_name' => $request->category_name,
             'updated_at' => Carbon::now(),
         ]);
