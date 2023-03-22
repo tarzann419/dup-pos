@@ -76,7 +76,7 @@
                         </p>
                         <br>
                     </div>
-                    <form action="">
+                    <form action="{{ url(/complete-order) }}">
                         <button class="btn btn-blue waves-effect waves light"> Create Invoice</button>
                     </form>
 

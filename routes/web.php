@@ -129,7 +129,8 @@ Route::controller(PosController::class)->group(function () {
     Route::get('/allitems', 'AllItem');
     Route::post('/cart-update/{rowId}','CartUpdate');
     Route::get('/cart-remove/{rowId}','CartRemove');
+    // Route::post('/complete-order','Complete Order');
 
 
-    
+
 });
