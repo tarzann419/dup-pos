@@ -28,22 +28,27 @@ class OutOfStock extends Command
      */
     public function handle()
     {
-        $test = Product::latest()->get()->value('product_store');
-        // $newTest = Product::find($test);
-        if ($test == 21) {
-            $newTest = Product::find($test)->get()->value('product_name');
-            echo 'yes there is' . $newTest;
+        // Define the test value to compare with
+        $testValue = 20;
 
-            // echo $newTest->product_name . 'is running out of stock';
-        } 
-        else {
-            $newTest = Product::find($test)->get()->value('product_name');
-            echo 'there IS NOT' . $newTest;
-            // echo $newTest->product_name . ' ' . 'is NOT out of stock';
+        // Get all products from the database
+        $products = Product::all();
+
+        // Loop through each product
+        foreach ($products as $product) {
+            // Get the product's store amount from the database
+            $productStore = $product->product_store;
+
+            // Check if the product's store amount is equal to the test value
+            if ($productStore == $testValue) {
+                // Prompt the user that the product is running out of stock
+                echo "The product . '{$product->product_name}' . is running out of stock!\n";
+            }
         }
 
+        // Prompt the user that the check is complete
+        echo "Stock check complete!\n";
 
-        // $test = Product::where('id', 3)->value('product_name');
-        // echo $test;
+
     }
 }
