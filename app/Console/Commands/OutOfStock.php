@@ -40,14 +40,25 @@ class OutOfStock extends Command
             $productStore = $product->product_store;
 
             // Check if the product's store amount is equal to the test value
-            if ($productStore == $testValue) {
+            if ($productStore >= $testValue) {
                 // Prompt the user that the product is running out of stock
-                echo "The product . '{$product->product_name}' . is running out of stock!\n";
+
+
+                $prod_name = "The product {$product->product_name} is running out of stock!\n";
+
+                echo $prod_name;
+
+                // return redirect()->route('stock.control', $prod_name);
+
+
+
+
+
             }
         }
 
         // Prompt the user that the check is complete
-        echo "Stock check complete!\n";
+        // echo "Stock check complete!\n";
 
 
     }
