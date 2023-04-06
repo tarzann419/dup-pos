@@ -10,6 +10,9 @@ use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ExpenseController;
 use App\Http\Controllers\Backend\PosController;
+use App\Http\Controllers\StockMailController;
+use App\Mail\StockControlMail;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -134,3 +137,16 @@ Route::controller(PosController::class)->group(function () {
 
 
 });
+
+
+// // route for mailing
+// Route::get('/stock', function () {
+//     Mail::to('info@dan.com')->send(new StockControlMail());
+//     return new StockControlMail();
+// })->name('stock.control');
+
+// Route::get('/{prod_name}', function () {
+//     return view('emails.stockControl', compact('prod_name'));
+// });
+
+Route::get('/stock', [StockMailController::class, 'stockMail']);
