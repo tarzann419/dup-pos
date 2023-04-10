@@ -40,7 +40,7 @@
                                     <th>Image</th>
                                     <th>Name</th>
                                     <th>Category</th>
-                                    <th>Supplier</th>
+                                    <th>Number Left</th>
                                     <th>Code</th>
                                     <th>Price</th>
                                     <th>Action</th>
@@ -57,7 +57,8 @@
                                     <!-- accessing the specific names after making a relationship between the tables from the Product Model page
                                                 ['functionName']['DBfield'] -->
                                     <td>{{ $item['category']['category_name'] }}</td>
-                                    <td>{{ $item['supplier']['name'] }}</td>
+                                    <td>{{ $item->product_store }}</td>
+                                    <!-- <td>{{ $item['supplier']['name'] }}</td> -->
                                     <td>{{ $item->product_code }}</td>
                                     <td>{{ $item->selling_price }}</td>
                                     <td>

@@ -67,5 +67,7 @@ class PosController extends Controller
         return redirect()->back()->with($notification);
     }
 
-    // public function
+    public function CompleteOrder(){
+        
+    }
 }
