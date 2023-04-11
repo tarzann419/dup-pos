@@ -1,18 +1,19 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+use App\Mail\StockControlMail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StockMailController;
+use App\Http\Controllers\Backend\PosController;
+use App\Http\Controllers\Backend\ExpenseController;
+use App\Http\Controllers\Backend\ProductController;
+use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\CustomerController;
 use App\Http\Controllers\Backend\EmployeeController;
 use App\Http\Controllers\Backend\SupplierController;
-use App\Http\Controllers\Backend\CategoryController;
-use App\Http\Controllers\Backend\ProductController;
-use App\Http\Controllers\Backend\ExpenseController;
-use App\Http\Controllers\Backend\PosController;
-use App\Http\Controllers\StockMailController;
-use App\Mail\StockControlMail;
-use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,9 +48,11 @@ require __DIR__ . '/auth.php';
 // Admin Controller Route
 
 Route::controller(AdminController::class)->group(function () {
+
+            Route::get('/logout', 'AdminLogoutPage')->name('admin.logout.page');
+
     Route::middleware(['auth'])->group(function () {
         Route::get('/admin/logout', 'AdminDestroy')->name('admin.logout');
-        Route::get('/logout', 'AdminLogoutPage')->name('admin.logout.page');
         Route::get('/admin/profile', 'AdminProfilePage')->name('admin.profile');
         Route::post('/admin/profile/store', 'AdminProfileStore')->name('admin.profile.store');
         Route::get('/admin/change/password', 'ChangePassword')->name('change.password');
@@ -150,3 +153,4 @@ Route::controller(PosController::class)->group(function () {
 // });
 
 Route::get('/stock', [StockMailController::class, 'stockMail']);
+

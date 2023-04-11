@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Mail;
 
 class ExpiryNotificationController extends Controller
 {
-    public function sendExpiryNotification()
+    static public function sendExpiryNotification()
     {
         // Retrieve all products with an expiry date
         $products = Product::whereNotNull('expire_date')->get();

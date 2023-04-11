@@ -19,7 +19,8 @@ class Kernel extends ConsoleKernel
         // $schedule->command('low:stock')
         //     ->everyMinute()
         //     ->appendOutputTo('scheduler.log');
-        $schedule->command('expiry:notification')->daily();
+        // $schedule->command('expiry:notification')->daily();
+        // $schedule->command('low:stock')->daily();
 
     }
 

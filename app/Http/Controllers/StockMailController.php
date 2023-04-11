@@ -11,7 +11,7 @@ use App\Models\Product;
 
 class StockMailController extends Controller
 {
-    public function stockMail()
+    static public function stockMail()
     {
         // Define the test value to compare with
         $testValue = 20;
