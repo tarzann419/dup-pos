@@ -52,7 +52,4 @@ class ProductExport implements FromCollection, WithHeadings, WithStyles
         //     ]
         // ]);
     }
-
-
-    
 }
