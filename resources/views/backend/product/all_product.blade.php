@@ -36,7 +36,7 @@
                         <table id="basic-datatable" class="table dt-responsive nowrap w-100">
                             <thead>
                                 <tr>
-                                    <th>Sl</th>
+                                    <th>S/N</th>
                                     <th>Image</th>
                                     <th>Name</th>
                                     <th>Category</th>
@@ -47,18 +47,14 @@
                                 </tr>
                             </thead>
 
-
                             <tbody>
                                 @foreach($product as $key => $item)
                                 <tr>
                                     <td>{{ $key+1 }}</td>
                                     <td> <img src="{{ asset($item->product_image) }}" style="width:50px; height: 40px;"> </td>
                                     <td>{{ $item->product_name }}</td>
-                                    <!-- accessing the specific names after making a relationship between the tables from the Product Model page
-                                                ['functionName']['DBfield'] -->
                                     <td>{{ $item['category']['category_name'] }}</td>
                                     <td>{{ $item->product_store }}</td>
-                                    <!-- <td>{{ $item['supplier']['name'] }}</td> -->
                                     <td>{{ $item->product_code }}</td>
                                     <td>{{ $item->selling_price }}</td>
                                     <td>
@@ -70,18 +66,13 @@
                                 @endforeach
                             </tbody>
                         </table>
-
+                        
                     </div> <!-- end card body-->
                 </div> <!-- end card -->
             </div><!-- end col-->
         </div>
         <!-- end row-->
-
-
-
-
     </div> <!-- container -->
-
 </div> <!-- content -->
 
 

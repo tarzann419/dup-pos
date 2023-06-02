@@ -3,7 +3,7 @@
 
 The following Products are running out of stock in the Store:
 <br>
-    {{ $prod_name }}
+{{ $data['message'] }}
     <br>
 Please Update them as soon as possible!
 

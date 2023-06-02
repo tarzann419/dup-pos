@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
+use App\Models\User;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Mail\ExpiryNotification;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
 
@@ -22,10 +24,14 @@ class ExpiryNotificationController extends Controller
         
         // Loop through the products to check for upcoming expiries
         $expiringSoon = [];
+        
         foreach ($products as $product) {
             $expiryDate = Carbon::parse($product->expire_date)->format('Y-m-d');
+
             if ($expiryDate >= $twoWeeksBefore && $expiryDate <= date('Y-m-d')) {
+
                 $expiringSoon[] = $product->product_name;
+
             }
         }
         
@@ -33,7 +39,8 @@ class ExpiryNotificationController extends Controller
         if (!empty($expiringSoon)) {
             $message = 'The following products are expiring soon: ' . implode(', ', $expiringSoon);
             $data = ['message' => $message];
-            $to = 'kingxb7@gmail.com'; // Replace with actual email address
+
+            $to = Auth::user()->email; // Replace with actual email address
             
             // Send email with mail markdown
             Mail::to($to)->send(new ExpiryNotification($data));

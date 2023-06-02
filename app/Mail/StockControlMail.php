@@ -12,16 +12,16 @@ use Illuminate\Queue\SerializesModels;
 class StockControlMail extends Mailable
 {
     use Queueable, SerializesModels;
-    public $prod_name;
+    public $data;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($prod_name)
+    public function __construct($data)
     {
-        $this->prod_name = $prod_name;
+        $this->data = $data;
     }
 
     /**
@@ -66,6 +66,7 @@ class StockControlMail extends Mailable
 
     public function build()
     {
-        return $this->from('danogbo0@gmail.com')->markdown('emails.stockControl');
+        return $this->markdown('emails.stockControl')->with('data', $this->data);
+        // return $this->from('danogbo0@gmail.com')->markdown('emails.stockControl');
     }
 }

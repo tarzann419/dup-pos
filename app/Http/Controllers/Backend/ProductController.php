@@ -71,6 +71,7 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
         $category = Category::findOrFail($id);
         $supplier = Supplier::findOrFail($id);
+
         return view('backend.product.edit_product', compact('product', 'category', 'supplier'));
     }
 
@@ -108,7 +109,9 @@ class ProductController extends Controller
             );
 
             return redirect()->route('all.product')->with($notification);
-        } else {
+        } 
+        // otherewise, verify without the image uploaded
+        else {
 
             Product::findOrFail($product_id)->update([
 
