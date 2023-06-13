@@ -2,325 +2,178 @@
 @section('admin')
 
 
-
-
-<div class="content">
-
-    <!-- Start Content-->
+<div class="page-content">
     <div class="container-fluid">
 
         <!-- start page title -->
         <div class="row">
             <div class="col-12">
-                <div class="page-title-box">
+                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                    <h4 class="mb-sm-0">Dashboard</h4>
+
                     <div class="page-title-right">
-                        <form class="d-flex align-items-center mb-3">
-                            <div class="input-group input-group-sm">
-                                <input type="text" class="form-control border-0" id="dash-daterange">
-                                <span class="input-group-text bg-blue border-blue text-white">
-                                    <i class="mdi mdi-calendar-range"></i>
-                                </span>
-                            </div>
-                            <a href="javascript: void(0);" class="btn btn-blue btn-sm ms-2">
-                                <i class="mdi mdi-autorenew"></i>
-                            </a>
-                            <a href="javascript: void(0);" class="btn btn-blue btn-sm ms-1">
-                                <i class="mdi mdi-filter-variant"></i>
-                            </a>
-                        </form>
+                        <ol class="breadcrumb m-0">
+                            <li class="breadcrumb-item active">Dashboard</li>
+                        </ol>
                     </div>
-                    <h4 class="page-title">Dashboard</h4>
+
                 </div>
             </div>
         </div>
         <!-- end page title -->
 
         <div class="row">
-            <div class="col-md-6 col-xl-3">
-                <div class="widget-rounded-circle card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-6">
-                                <div class="avatar-lg rounded-circle bg-primary border-primary border shadow">
-                                    <i class="fe-heart font-22 avatar-title text-white"></i>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="text-end">
-                                    <h3 class="text-dark mt-1">$<span data-plugin="counterup">58,947</span></h3>
-                                    <p class="text-muted mb-1 text-truncate">Total Revenue</p>
-                                </div>
-                            </div>
-                        </div> <!-- end row-->
-                    </div>
-                </div> <!-- end widget-rounded-circle-->
-            </div> <!-- end col-->
-
-            <div class="col-md-6 col-xl-3">
-                <div class="widget-rounded-circle card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-6">
-                                <div class="avatar-lg rounded-circle bg-success border-success border shadow">
-                                    <i class="fe-shopping-cart font-22 avatar-title text-white"></i>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="text-end">
-                                    <h3 class="text-dark mt-1"><span data-plugin="counterup">127</span></h3>
-                                    <p class="text-muted mb-1 text-truncate">Today's Sales</p>
-                                </div>
-                            </div>
-                        </div> <!-- end row-->
-                    </div>
-                </div> <!-- end widget-rounded-circle-->
-            </div> <!-- end col-->
-
-            <div class="col-md-6 col-xl-3">
-                <div class="widget-rounded-circle card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-6">
-                                <div class="avatar-lg rounded-circle bg-info border-info border shadow">
-                                    <i class="fe-bar-chart-line- font-22 avatar-title text-white"></i>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="text-end">
-                                    <h3 class="text-dark mt-1"><span data-plugin="counterup">0.58</span>%</h3>
-                                    <p class="text-muted mb-1 text-truncate">Conversion</p>
-                                </div>
-                            </div>
-                        </div> <!-- end row-->
-                    </div>
-                </div> <!-- end widget-rounded-circle-->
-            </div> <!-- end col-->
-
-            <div class="col-md-6 col-xl-3">
-                <div class="widget-rounded-circle card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-6">
-                                <div class="avatar-lg rounded-circle bg-warning border-warning border shadow">
-                                    <i class="fe-eye font-22 avatar-title text-white"></i>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="text-end">
-                                    <h3 class="text-dark mt-1"><span data-plugin="counterup">78.41</span>k</h3>
-                                    <p class="text-muted mb-1 text-truncate">Today's Visits</p>
-                                </div>
-                            </div>
-                        </div> <!-- end row-->
-                    </div>
-                </div> <!-- end widget-rounded-circle-->
-            </div> <!-- end col-->
-        </div>
-        <!-- end row-->
-
-        <div class="row">
-             <!-- end col-->
-
-            <div class="col-lg-12">
+            <div class="col-xl-4 col-md-6">
                 <div class="card">
-                    <div class="card-body pb-2">
-                        <div class="float-end d-none d-md-inline-block">
-                            <div class="btn-group mb-2">
-                                <button type="button" class="btn btn-xs btn-light">Today</button>
-                                <button type="button" class="btn btn-xs btn-light">Weekly</button>
-                                <button type="button" class="btn btn-xs btn-secondary">Monthly</button>
+                    <div class="card-body">
+                        <div class="d-flex">
+                            <div class="flex-grow-1">
+                                <p class="text-truncate font-size-14 mb-2">Total Sales</p>
+                                <h4 class="mb-2">1452</h4>
+                                <p class="text-muted mb-0"><span class="text-success fw-bold font-size-12 me-2"><i class="ri-arrow-right-up-line me-1 align-middle"></i>9.23%</span>from previous period</p>
+                            </div>
+                            <div class="avatar-sm">
+                                <span class="avatar-title bg-light text-primary rounded-3">
+                                    <i class="ri-shopping-cart-2-line font-size-24"></i>
+                                </span>
                             </div>
                         </div>
-
-                        <h4 class="header-title mb-3">Sales Analytics</h4>
-
-                        <div dir="ltr">
-                            <div id="sales-analytics" class="mt-4" data-colors="#1abc9c,#4a81d4"></div>
+                    </div><!-- end cardbody -->
+                </div><!-- end card -->
+            </div><!-- end col -->
+            <div class="col-xl-4 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex">
+                            <div class="flex-grow-1">
+                                <p class="text-truncate font-size-14 mb-2">New Orders</p>
+                                <h4 class="mb-2">938</h4>
+                                <p class="text-muted mb-0"><span class="text-danger fw-bold font-size-12 me-2"><i class="ri-arrow-right-down-line me-1 align-middle"></i>1.09%</span>from previous period</p>
+                            </div>
+                            <div class="avatar-sm">
+                                <span class="avatar-title bg-light text-success rounded-3">
+                                    <i class="mdi mdi-currency-usd font-size-24"></i>
+                                </span>
+                            </div>
                         </div>
-                    </div>
-                </div> <!-- end card -->
-            </div> <!-- end col-->
-        </div>
-        <!-- end row -->
+                    </div><!-- end cardbody -->
+                </div><!-- end card -->
+            </div><!-- end col -->
+
+            <div class="col-xl-4 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex">
+                            <div class="flex-grow-1">
+                                <p class="text-truncate font-size-14 mb-2">Unique Visitors</p>
+                                <h4 class="mb-2">29670</h4>
+                                <p class="text-muted mb-0"><span class="text-success fw-bold font-size-12 me-2"><i class="ri-arrow-right-up-line me-1 align-middle"></i>11.7%</span>from previous period</p>
+                            </div>
+                            <div class="avatar-sm">
+                                <span class="avatar-title bg-light text-success rounded-3">
+                                    <i class="mdi mdi-currency-btc font-size-24"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div><!-- end cardbody -->
+                </div><!-- end card -->
+            </div><!-- end col -->
+        </div><!-- end row -->
+
+        <!-- <div class="row"> -->
+
 
         <div class="row">
-            <!-- end col -->
-
-            <div class="col-xl-12">
+            <div class="col-xl-6">
                 <div class="card">
                     <div class="card-body">
                         <div class="dropdown float-end">
                             <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="mdi mdi-dots-vertical"></i>
                             </a>
-                            <div class="dropdown-menu dropdown-menu-end">
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Edit Report</a>
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Export Report</a>
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                            </div>
+
                         </div>
 
-                        <h4 class="header-title mb-3">Revenue History</h4>
+                        <h4 class="card-title mb-4">Products That Are Expiring Soon</h4>
 
                         <div class="table-responsive">
-                            <table class="table table-borderless table-nowrap table-hover table-centered m-0">
-
-                                <thead class="table-light">
+                            <table id="basic-datatable" class="table dt-responsive nowrap w-100">
+                                <thead>
                                     <tr>
-                                        <th>Marketplaces</th>
-                                        <th>Date</th>
-                                        <th>Payouts</th>
-                                        <th>Status</th>
+                                        <th>Sl</th>
+                                        <th>Product Name </th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
+
+
                                 <tbody>
+                                    @foreach($expiringSoon as $key=> $item)
                                     <tr>
+                                        <td>{{ $key+1 }}</td>
+                                        <td>{{ $item }}</td>
                                         <td>
-                                            <h5 class="m-0 fw-normal">Themes Market</h5>
-                                        </td>
-
-                                        <td>
-                                            Oct 15, 2018
-                                        </td>
-
-                                        <td>
-                                            $5848.68
-                                        </td>
-
-                                        <td>
-                                            <span class="badge bg-soft-warning text-warning">Upcoming</span>
-                                        </td>
-
-                                        <td>
-                                            <a href="javascript: void(0);" class="btn btn-xs btn-light"><i class="mdi mdi-pencil"></i></a>
+                                            <a href="{{ route('all.product') }}" class="btn btn-blue rounded-pill waves-effect waves-light">Review</a>
                                         </td>
                                     </tr>
-
-                                    <tr>
-                                        <td>
-                                            <h5 class="m-0 fw-normal">Freelance</h5>
-                                        </td>
-
-                                        <td>
-                                            Oct 12, 2018
-                                        </td>
-
-                                        <td>
-                                            $1247.25
-                                        </td>
-
-                                        <td>
-                                            <span class="badge bg-soft-success text-success">Paid</span>
-                                        </td>
-
-                                        <td>
-                                            <a href="javascript: void(0);" class="btn btn-xs btn-light"><i class="mdi mdi-pencil"></i></a>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            <h5 class="m-0 fw-normal">Share Holding</h5>
-                                        </td>
-
-                                        <td>
-                                            Oct 10, 2018
-                                        </td>
-
-                                        <td>
-                                            $815.89
-                                        </td>
-
-                                        <td>
-                                            <span class="badge bg-soft-success text-success">Paid</span>
-                                        </td>
-
-                                        <td>
-                                            <a href="javascript: void(0);" class="btn btn-xs btn-light"><i class="mdi mdi-pencil"></i></a>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            <h5 class="m-0 fw-normal">Envato's Affiliates</h5>
-                                        </td>
-
-                                        <td>
-                                            Oct 03, 2018
-                                        </td>
-
-                                        <td>
-                                            $248.75
-                                        </td>
-
-                                        <td>
-                                            <span class="badge bg-soft-danger text-danger">Overdue</span>
-                                        </td>
-
-                                        <td>
-                                            <a href="javascript: void(0);" class="btn btn-xs btn-light"><i class="mdi mdi-pencil"></i></a>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            <h5 class="m-0 fw-normal">Marketing Revenue</h5>
-                                        </td>
-
-                                        <td>
-                                            Sep 21, 2018
-                                        </td>
-
-                                        <td>
-                                            $978.21
-                                        </td>
-
-                                        <td>
-                                            <span class="badge bg-soft-warning text-warning">Upcoming</span>
-                                        </td>
-
-                                        <td>
-                                            <a href="javascript: void(0);" class="btn btn-xs btn-light"><i class="mdi mdi-pencil"></i></a>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            <h5 class="m-0 fw-normal">Advertise Revenue</h5>
-                                        </td>
-
-                                        <td>
-                                            Sep 15, 2018
-                                        </td>
-
-                                        <td>
-                                            $358.10
-                                        </td>
-
-                                        <td>
-                                            <span class="badge bg-soft-success text-success">Paid</span>
-                                        </td>
-
-                                        <td>
-                                            <a href="javascript: void(0);" class="btn btn-xs btn-light"><i class="mdi mdi-pencil"></i></a>
-                                        </td>
-                                    </tr>
-
+                                    @endforeach
                                 </tbody>
-                            </table>
-                        </div> <!-- end .table-responsive-->
-                    </div>
-                </div> <!-- end card-->
-            </div> <!-- end col -->
+                            </table> <!-- end table -->
+                        </div>
+                    </div><!-- end card -->
+                </div><!-- end card -->
+            </div>
+            <!-- end col -->
+
+
+
+            <div class="col-xl-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="dropdown float-end">
+                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="mdi mdi-dots-vertical"></i>
+                            </a>
+
+                        </div>
+
+                        <h4 class="card-title mb-4">Out of Stock Products </h4>
+
+                        <div class="table-responsive">
+                            <table id="basic-datatable" class="table dt-responsive nowrap w-100">
+                                <thead>
+                                    <tr>
+                                        <th>Sl</th>
+                                        <th>Product Name </th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+
+
+                                <tbody>
+                                    @foreach($out_of_stock as $key=> $item)
+                                    <tr>
+                                        <td>{{ $key+1 }}</td>
+                                        <td>{{ $item }}</td>
+                                        <td>
+                                            <a href="{{ route('all.product') }}" class="btn btn-blue rounded-pill waves-effect waves-light">Review</a>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table> <!-- end table -->
+                        </div>
+                    </div><!-- end card -->
+                </div><!-- end card -->
+            </div>
+            <!-- end col -->
+
+
+
         </div>
         <!-- end row -->
 
-    </div> <!-- container -->
 
-</div>
+    </div>
 
-@endsection
+    @endsection

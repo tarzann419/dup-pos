@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Mail;
 
 class ExpiryNotificationController extends Controller
 {
-    static public function sendExpiryNotification()
+    public function sendExpiryNotification()
     {
         // Retrieve all products with an expiry date
         $products = Product::whereNotNull('expire_date')->get();
@@ -46,20 +46,4 @@ class ExpiryNotificationController extends Controller
             Mail::to($to)->send(new ExpiryNotification($data));
         }
     }
-    // {
-    //     $products = Product::all();
-
-    //     foreach ($products as $product) {
-    //         $expiryDate = $product->expiry_date;
-
-    //         if ($expiryDate != null) {
-    //             $twoWeeksBeforeExpiry = date('Y-m-d', strtotime('-2 weeks', strtotime($expiryDate)));
-
-    //             if ($twoWeeksBeforeExpiry == date('Y-m-d')) {
-    //                 $email = new ExpiryNotification($product);
-    //                 Mail::to('kingxb7@gmail.com')->send($email);
-    //             }
-    //         }
-    //     }
-    // }
 }

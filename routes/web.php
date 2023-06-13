@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Product;
 use App\Mail\StockControlMail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
@@ -14,6 +15,7 @@ use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\CustomerController;
 use App\Http\Controllers\Backend\EmployeeController;
 use App\Http\Controllers\Backend\SupplierController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,8 +33,16 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('index');
+
+    
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'ControlNotifier'])->name('dashboard');
+});
+
+
 
 
 Route::middleware('auth')->group(function () {
@@ -49,7 +59,7 @@ require __DIR__ . '/auth.php';
 
 Route::controller(AdminController::class)->group(function () {
 
-            Route::get('/logout', 'AdminLogoutPage')->name('admin.logout.page');
+    Route::get('/logout', 'AdminLogoutPage')->name('admin.logout.page');
 
     Route::middleware(['auth'])->group(function () {
         Route::get('/admin/logout', 'AdminDestroy')->name('admin.logout');
@@ -131,10 +141,10 @@ Route::controller(ExpenseController::class)->group(function () {
 
 Route::controller(PosController::class)->group(function () {
     Route::get('/pos', 'Pos')->name('pos');
-    Route::post('/add-cart','AddCart');
+    Route::post('/add-cart', 'AddCart');
     Route::get('/allitems', 'AllItem');
-    Route::post('/cart-update/{rowId}','CartUpdate');
-    Route::get('/cart-remove/{rowId}','CartRemove');
+    Route::post('/cart-update/{rowId}', 'CartUpdate');
+    Route::get('/cart-remove/{rowId}', 'CartRemove');
     // Route::post('/complete-order','Complete Order');
 
 
@@ -153,4 +163,3 @@ Route::controller(PosController::class)->group(function () {
 // });
 
 Route::get('/stock', [StockMailController::class, 'stockMail']);
-

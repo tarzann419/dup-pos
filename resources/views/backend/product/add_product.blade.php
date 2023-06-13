@@ -91,13 +91,7 @@
 
 
 
-                                    <div class="col-md-6">
-                                        <div class="form-group mb-3">
-                                            <label for="firstname" class="form-label">Product Garage </label>
-                                            <input type="text" name="product_garage" placeholder="where product is stored" class="form-control ">
 
-                                        </div>
-                                    </div>
 
 
                                     <div class="col-md-6">

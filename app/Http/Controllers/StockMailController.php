@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Mail;
 
 class StockMailController extends Controller
 {
-    static public function stockMail()
+    public function stockMail()
     {
         // Define the test value to compare with
         $testValue = 20;

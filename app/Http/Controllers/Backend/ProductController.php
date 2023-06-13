@@ -34,7 +34,7 @@ class ProductController extends Controller
 
     public function StoreProduct(Request $request)
     {
-        $pcode = IdGenerator::generate(['table' => 'products','field' => 'product_code','length' => 4, 'prefix' => 'PC' ]);
+        $pcode = IdGenerator::generate(['table' => 'products', 'field' => 'product_code', 'length' => 4, 'prefix' => 'PC']);
 
         $image = $request->file('product_image');
         $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
@@ -92,7 +92,7 @@ class ProductController extends Controller
                 'category_id' => $request->category_id,
                 'supplier_id' => $request->supplier_id,
                 'product_code' => $request->product_code,
-                'product_garage' => $request->product_garage,
+                // 'product_garage' => $request->product_garage,
                 'product_store' => $request->product_store,
                 'buying_date' => $request->buying_date,
                 'expire_date' => $request->expire_date,
@@ -109,7 +109,7 @@ class ProductController extends Controller
             );
 
             return redirect()->route('all.product')->with($notification);
-        } 
+        }
         // otherewise, verify without the image uploaded
         else {
 
@@ -119,7 +119,7 @@ class ProductController extends Controller
                 'category_id' => $request->category_id,
                 'supplier_id' => $request->supplier_id,
                 'product_code' => $request->product_code,
-                'product_garage' => $request->product_garage,
+                // 'product_garage' => $request->product_garage,
                 'product_store' => $request->product_store,
                 'buying_date' => $request->buying_date,
                 'expire_date' => $request->expire_date,
@@ -140,7 +140,8 @@ class ProductController extends Controller
 
     } // End Method 
 
-    public function DeleteProduct($id){
+    public function DeleteProduct($id)
+    {
 
         $product_img = Product::findOrFail($id);
         $img = $product_img->product_image;
@@ -153,27 +154,30 @@ class ProductController extends Controller
             'alert-type' => 'success'
         );
 
-        return redirect()->back()->with($notification); 
-
+        return redirect()->back()->with($notification);
     } // End Method 
 
 
 
-    public function BarcodeProduct($id){
+    public function BarcodeProduct($id)
+    {
         $product = Product::findOrFail($id);
         return view('backend.product.barcode_product', compact('product'));
     }
 
-    public function ImportProduct(){
+    public function ImportProduct()
+    {
         return view('backend.product.import_product');
     }
 
-    public function Export(){
+    public function Export()
+    {
         //create a new object
         return Excel::download(new ProductExport, 'product.xlsx');
     }
 
-    public function Import(Request $request){
+    public function Import(Request $request)
+    {
         Excel::import(new ProductImport, $request->file('import_file'));
 
         $notification = array(
@@ -181,7 +185,7 @@ class ProductController extends Controller
             'alert-type' => 'success'
         );
 
-        return redirect()->back()->with($notification); 
+        return redirect()->back()->with($notification);
     }
 
 
