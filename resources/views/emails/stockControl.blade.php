@@ -3,7 +3,7 @@
 
 The following Products are running out of stock in the Store:
 <br>
-{{ $data['message'] }}
+<span style="color: red;">{{ $data['message'] }}</span>
     <br>
 Please Update them as soon as possible!
 

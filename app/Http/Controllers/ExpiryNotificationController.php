@@ -14,34 +14,42 @@ use Illuminate\Support\Facades\Mail;
 
 class ExpiryNotificationController extends Controller
 {
-    public function sendExpiryNotification()
+    static public function sendExpiryNotification()
     {
         // Retrieve all products with an expiry date
         $products = Product::whereNotNull('expire_date')->get();
-        
-        // Get the date two weeks before today
-        $twoWeeksBefore = Carbon::now()->subWeeks(2)->format('Y-m-d');
-        
-        // Loop through the products to check for upcoming expiries
+
+        // Get the current date and time using Carbon \
+        $currentDate = Carbon::now();
+
+        // Initialize an empty array to store products expiring soon
         $expiringSoon = [];
-        
+
+        // Loop through each product in the $products array
         foreach ($products as $product) {
-            $expiryDate = Carbon::parse($product->expire_date)->format('Y-m-d');
+            // Parse the expiry date of the product using Carbon
 
-            if ($expiryDate >= $twoWeeksBefore && $expiryDate <= date('Y-m-d')) {
+            $expiryDate = Carbon::parse($product->expire_date);
 
-                $expiringSoon[] = $product->product_name;
+            // Calculate the date two weeks from the current date
+            $twoWeeksFromNow = $currentDate->copy()->addWeeks(2); 
 
+            // Check if the expiry date is greater than or equal to two weeks from now
+
+            if ($expiryDate->greaterThanOrEqualTo($twoWeeksFromNow)) {
+                // Add the product name to the $expiringSoon array
+                $expiringSoon[] = $product->product_name; 
             }
         }
-        
+
+
         // Send notification for products expiring soon
         if (!empty($expiringSoon)) {
-            $message = 'The following products are expiring soon: ' . implode(', ', $expiringSoon);
+            $message = implode(', ', $expiringSoon);
             $data = ['message' => $message];
 
             $to = Auth::user()->email; // Replace with actual email address
-            
+
             // Send email with mail markdown
             Mail::to($to)->send(new ExpiryNotification($data));
         }

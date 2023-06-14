@@ -5,7 +5,8 @@
 <br>
 The Following are expiring soon :(
     <br>
-{{ $data['message'] }}
+
+<span style="color: red;">{{ $data['message'] }}</span>
 <br>
 Please Check Them Now!
 

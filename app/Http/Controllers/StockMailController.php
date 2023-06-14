@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Mail;
 
 class StockMailController extends Controller
 {
-    public function stockMail()
+    static public function stockMail()
     {
         // Define the test value to compare with
         $testValue = 20;
@@ -29,21 +29,19 @@ class StockMailController extends Controller
             // Check if the product's store amount is equal to the test value
             if ($productStore <= $testValue) {
                 // Prompt the user that the product is running out of stock
-                
-                $prod_name[] = "$product->product_name";
 
-                $message = 'The following products are expiring soon: ' . implode(', ', $prod_name);
-                $data = ['message' => $message];
-                $to = Auth::user()->email; 
-                
-                // Send email with mail markdown
-                Mail::to($to)->send(new StockControlMail($data));
+                $prod_name[] = $product->product_name;
 
 
+                if (!empty($prod_name)) {
+                    
+                    $message = implode(', ', $prod_name);
+                    $data = ['message' => $message];
+                    $to = Auth::user()->email;
 
-
-
-
+                    // Send email with mail markdown
+                    Mail::to($to)->send(new StockControlMail($data));
+                }
             }
         }
     }
