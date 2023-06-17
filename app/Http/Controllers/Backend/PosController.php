@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\Backend;
 
+use Carbon\Carbon;
 use App\Models\Product;
+
+use App\Models\Customer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -12,7 +15,9 @@ class PosController extends Controller
     public function Pos()
     {
         $product = Product::latest()->get();
-        return view('backend.pos.pos_page', compact('product'));
+        $customer = Customer::latest()->get();
+
+        return view('backend.pos.pos_page', compact('product', 'customer'));
     }
 
     public function AddCart(Request $request)
@@ -67,7 +72,14 @@ class PosController extends Controller
         return redirect()->back()->with($notification);
     }
 
-    public function CompleteOrder(){
-        
-    }
+
+    public function CreateInvoice(Request $request){
+
+        $contents = Cart::content();
+        $todaysDate = Carbon::now()->toDateString();
+        $cust_id = $request->customer_id;
+        $customer = Customer::where('id',$cust_id)->first();
+        return view('backend.invoice.product_invoice',compact('contents', 'todaysDate', 'customer'));
+
+   } // End Method 
 }

@@ -32,6 +32,46 @@
 
 
                 <li>
+                    <a href="#sidebarStock" data-bs-toggle="collapse">
+                        <i class="mdi mdi-book-account-outline"></i>
+                        <span> Stock Manage </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarStock">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{ route('stock.manage') }}">Stock </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </li>
+
+                
+                <li>
+                    <a href="#sidebarOrders" data-bs-toggle="collapse">
+                        <i class="mdi mdi-book-account-outline"></i>
+                        <span> Orders </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarOrders">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{ route('pending.order') }}">Pending Orders </a>
+                            </li>
+
+                            <li>
+                                <a href="{{ route('complete.order') }}">Complete Orders </a>
+                            </li>
+
+                            <li>
+                                <a href="{{ route('pending.due') }}">Pending Due </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </li>
+                <li>
                     <a href="#sidebarContacts" data-bs-toggle="collapse">
                         <i class="mdi mdi-book-account-outline"></i>
                         <span> Customer Manage </span>

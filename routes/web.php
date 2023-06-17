@@ -7,15 +7,16 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\StockMailController;
 use App\Http\Controllers\Backend\PosController;
+use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\ExpenseController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\CustomerController;
 use App\Http\Controllers\Backend\EmployeeController;
 use App\Http\Controllers\Backend\SupplierController;
-use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,8 +34,6 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-
-    
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
@@ -145,10 +144,7 @@ Route::controller(PosController::class)->group(function () {
     Route::get('/allitems', 'AllItem');
     Route::post('/cart-update/{rowId}', 'CartUpdate');
     Route::get('/cart-remove/{rowId}', 'CartRemove');
-    // Route::post('/complete-order','Complete Order');
-
-
-
+    Route::post('/create-invoice', 'CreateInvoice');
 });
 
 
@@ -163,3 +159,44 @@ Route::controller(PosController::class)->group(function () {
 // });
 
 Route::get('/stock', [StockMailController::class, 'stockMail']);
+
+
+
+Route::controller(InvoiceController::class)->group(function () {
+    Route::get('/invoice/all', 'InvoiceAll')->name('invoice.all');
+    Route::get('/invoice/add', 'invoiceAdd')->name('invoice.add');
+    Route::post('/invoice/store', 'InvoiceStore')->name('invoice.store');
+
+    Route::get('/invoice/pending/list', 'PendingList')->name('invoice.pending.list');
+    Route::get('/invoice/delete/{id}', 'InvoiceDelete')->name('invoice.delete');
+    Route::get('/invoice/approve/{id}', 'InvoiceApprove')->name('invoice.approve');
+
+    Route::post('/approval/store/{id}', 'ApprovalStore')->name('approval.store');
+    Route::get('/print/invoice/list', 'PrintInvoiceList')->name('print.invoice.list');
+    Route::get('/print/invoice/{id}', 'PrintInvoice')->name('print.invoice');
+
+    Route::get('/daily/invoice/report', 'DailyInvoiceReport')->name('daily.invoice.report');
+    Route::get('/daily/invoice/pdf', 'DailyInvoicePdf')->name('daily.invoice.pdf');
+});
+
+
+
+///Order All Route 
+Route::controller(OrderController::class)->group(function () {
+
+    Route::post('/final-invoice', 'FinalInvoice');
+    Route::get('/pending/order', 'PendingOrder')->name('pending.order');
+    Route::get('/order/details/{order_id}', 'OrderDetails')->name('order.details');
+    Route::post('/order/status/update', 'OrderStatusUpdate')->name('order.status.update');
+
+    Route::get('/complete/order', 'CompleteOrder')->name('complete.order');
+
+    Route::get('/stock', 'StockManage')->name('stock.manage');
+    Route::get('/order/invoice-download/{order_id}', 'OrderInvoice');
+
+    //// Due All Route 
+
+    Route::get('/pending/due', 'PendingDue')->name('pending.due');
+    Route::get('/order/due/{id}', 'OrderDueAjax');
+    Route::post('/update/due', 'UpdateDue')->name('update.due');
+});
