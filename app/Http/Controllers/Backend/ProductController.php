@@ -47,7 +47,7 @@ class ProductController extends Controller
             'category_id' => $request->category_id,
             'supplier_id' => $request->supplier_id,
             'product_code' => $pcode,
-            'product_garage' => $request->product_garage,
+            
             'product_store' => $request->product_store,
             'buying_date' => $request->buying_date,
             'expire_date' => $request->expire_date,

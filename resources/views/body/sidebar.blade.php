@@ -23,9 +23,8 @@
 
                 <li>
                     <a href="{{ route('pos') }}">
-                        <span class="badge bg-pink float-end">POS</span>
                         <i class="mdi mdi-view-dashboard-outline"></i>
-                        <span> POS System </span>
+                        <span> Sales system</span>
                     </a>
                 </li>
 

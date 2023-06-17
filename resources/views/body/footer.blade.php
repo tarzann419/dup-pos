@@ -3,7 +3,7 @@
         <div class="col-md-6">
             <script>
                 document.write(new Date().getFullYear())
-            </script> &copy; HArdLearner <a href="">Hard Learner</a>
+            </script> &copy; cu shoppng mall<a href="">cu shopping mall</a>
         </div>
         <div class="col-md-6">
             <div class="text-md-end footer-links d-none d-sm-block">

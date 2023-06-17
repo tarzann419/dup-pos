@@ -27,7 +27,7 @@
 </head>
 
 <body class="authentication-bg authentication-bg-pattern">
-
+<h1 style="color: red; position: center; top: 20px; center: 50px;">CU SHOPPING MALL INVENTORY SYSTEM</h1>
     <div class="account-pages mt-5 mb-5">
         <div class="container">
             <div class="row justify-content-center">
@@ -40,13 +40,13 @@
                                 <div class="auth-logo">
                                     <a href="index.html" class="logo logo-dark text-center">
                                         <span class="logo-lg">
-                                            <img src="{{ asset('backend/assets/images/logo-dark.png') }}" alt="" height="22">
+                                            <img src="{{ asset('backend/assets/images/covenant-university-logo-desktop.png') }}" alt="" height="40">
                                         </span>
                                     </a>
 
                                     <a href="index.html" class="logo logo-light text-center">
                                         <span class="logo-lg">
-                                            <img src="{{ asset('backend/assets/images/logo-light.png') }}" alt="" height="22">
+                                            <img src="{{ asset('backend/assets/images/covenant-university-logo-desktop.png') }}" alt="" height="40">
                                         </span>
                                     </a>
                                 </div>
@@ -88,9 +88,9 @@
 
 
     <footer class="footer footer-alt">
-        2015 - <script>
+        2023 - <script>
             document.write(new Date().getFullYear())
-        </script> &copy; UBold theme by <a href="" class="text-white-50">Coderthemes</a>
+        </script> &copy; Covenant university shopping mall
     </footer>
 
     <!-- Vendor js -->

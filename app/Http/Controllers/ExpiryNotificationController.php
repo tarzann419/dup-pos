@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Carbon\Carbon;
+use Carbon\Carbon; //they're models or dependencies or packages; carbon is for time 
 use App\Models\User;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Mail;
 
 class ExpiryNotificationController extends Controller
 {
-    static public function sendExpiryNotification()
+  static  public function sendExpiryNotification()
     {
         // Retrieve all products with an expiry date
         $products = Product::whereNotNull('expire_date')->get();

@@ -5,8 +5,6 @@
     <meta charset="utf-8" />
     <title>Log In Page| </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
-    <meta content="Coderthemes" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- App favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico">
@@ -19,10 +17,14 @@
     <link href="{{ asset('backend/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- Head js -->
     <script src="{{ asset('backend/assets/js/head.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/login.css') }}">
+
 
 </head>
 
 <body class="authentication-bg authentication-bg-pattern">
+<h1 style="color: red; position: center; top: 20px; center: 50px;">CU SHOPPING MALL INVENTORY SYSTEM</h1>
+
 
     <div class="account-pages mt-5 mb-5">
         <div class="container">
@@ -36,18 +38,18 @@
                                 <div class="auth-logo">
                                     <a href="index.html" class="logo logo-dark text-center">
                                         <span class="logo-lg">
-                                            <img src="{{ asset('backend/assets/images/logo-dark.png') }}" alt="" height="22">
+                                            <img src="{{ asset('backend/assets/images/covenant-university-logo-desktop.png') }}" alt="" height="40">
                                         </span>
                                     </a>
 
                                     <a href="index.html" class="logo logo-light text-center">
                                         <span class="logo-lg">
-                                            <img src="{{ asset('backend/assets/images/logo-light.png') }}" alt="" height="22">
+                                            <img src="{{ asset('backend/assets/images/covenant-university-logo-desktop.png') }}" alt="" height="40">
                                         </span>
                                     </a>
                                 </div>
                             </div>
-
+<br>
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
 
@@ -108,9 +110,9 @@
 
 
     <footer class="footer footer-alt">
-        2015 - <script>
+        2023 - <script>
             document.write(new Date().getFullYear())
-        </script> &copy; UBold theme by <a href="" class="text-white-50">Coderthemes</a>
+        </script> &copy; Covenant university shopping mall
     </footer>
 
     <!-- Vendor js -->
