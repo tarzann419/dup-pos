@@ -138,7 +138,7 @@ class OrderController extends Controller
             'chroot' => public_path(),
 
         ]);
-        return $pdf->download('invoice.pdf');
+        return $pdf->download('invoiiice.pdf');
     } // End Method 
 
 

@@ -1,9 +1,26 @@
 @extends('admin_dashboard')
 @section('admin')
 
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
+<link href="https://nightly.datatables.net/css/jquery.dataTables.css" rel="stylesheet" type="text/css" />
+<script src="https://nightly.datatables.net/js/jquery.dataTables.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<meta charset=utf-8 />
+
+
+<style>
+    body {
+        font: 90%/1.45em "Helvetica Neue", HelveticaNeue, Verdana, Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+        color: #333;
+        background-color: #fff;
+    }
+</style>
 <div class="page-content">
     <div class="container-fluid">
+
 
         <!-- start page title -->
         <div class="row">
@@ -82,98 +99,101 @@
 
         <!-- <div class="row"> -->
 
-
-        <div class="row">
-            <div class="col-xl-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="dropdown float-end">
-                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="mdi mdi-dots-vertical"></i>
-                            </a>
-
-                        </div>
-
-                        <h4 class="card-title mb-4">Products That Are Expiring Soon</h4>
-
-                        <div class="table-responsive">
-                            <table id="basic-datatable" class="table dt-responsive nowrap w-100">
-                                <thead>
-                                    <tr>
-                                        <th>Sl</th>
-                                        <th>Product Name </th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
+        <!-- pie chart by category -->
+        <div id="container" style="width:100%; height:400px;"></div>
+        <div class="container">
+            <table id="example" class="display nowrap" width="100%">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Stock Position</th>
+                        <th>Category</th>
+                        <th>Expiry Date</th>
+                        <th>Supplier</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
 
 
-                                <tbody>
-                                    @foreach($expiringSoon as $key=> $item)
-                                    <tr>
-                                        <td>{{ $key+1 }}</td>
-                                        <td>{{ $item }}</td>
-                                        <td>
-                                            <a href="{{ route('all.product') }}" class="btn btn-blue rounded-pill waves-effect waves-light">Review</a>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table> <!-- end table -->
-                        </div>
-                    </div><!-- end card -->
-                </div><!-- end card -->
-            </div>
-            <!-- end col -->
+                <tbody>
 
-
-
-            <div class="col-xl-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="dropdown float-end">
-                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="mdi mdi-dots-vertical"></i>
-                            </a>
-
-                        </div>
-
-                        <h4 class="card-title mb-4">Out of Stock Products </h4>
-
-                        <div class="table-responsive">
-                            <table id="basic-datatable" class="table dt-responsive nowrap w-100">
-                                <thead>
-                                    <tr>
-                                        <th>Sl</th>
-                                        <th>Product Name </th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-
-
-                                <tbody>
-                                    @foreach($out_of_stock as $key=> $item)
-                                    <tr>
-                                        <td>{{ $key+1 }}</td>
-                                        <td>{{ $item }}</td>
-                                        <td>
-                                            <a href="{{ route('all.product') }}" class="btn btn-blue rounded-pill waves-effect waves-light">Review</a>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table> <!-- end table -->
-                        </div>
-                    </div><!-- end card -->
-                </div><!-- end card -->
-            </div>
-            <!-- end col -->
-
-
-
+@foreach($products as $item)
+                    <tr>
+                        <td>{{$item->product_name}}</td>
+                        <td align="center">
+                            
+                        <span style="color: {{ ($item->product_store <= 20) ? 'red' : 'black' }}">
+    {{ $item->product_store }}
+</span>
+                    
+                        </td>
+                        <td>{{$item['category']['category_name']}}</td>
+                        <td>{{$item->expire_date}}</td>
+                        <td>{{$item['supplier']['name']}}</td>
+                        <td><span style="color: green;">NGN</span> {{$item->selling_price}}</td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
-        <!-- end row -->
+
+        <!-- end of pie chart by category -->
+
 
 
     </div>
+
+
+    <!-- pie chart javascript -->
+    <script>
+        $(document).ready(function() {
+            var table = $("#example").DataTable();
+
+            var myChart = Highcharts.chart("container", {
+                chart: {
+                    type: "pie"
+                },
+                title: {
+                    text: "Stock Position Based On Category"
+                },
+                series: [{
+                    data: chartData(table)
+                }]
+            });
+
+            // Set the data for the first series to be the map returned from the chartData function
+            table.on("draw", function() {
+                myChart.series[0].setData(chartData(table));
+            });
+        });
+
+        function chartData(table) {
+            var counts = {};
+
+            // Count the number of entries for each office
+            table
+                .column(2, {
+                    search: 'applied'
+                })
+                .data()
+                .each(function(val) {
+                    if (counts[val]) {
+                        counts[val] += 1;
+                    } else {
+                        counts[val] = 1;
+                    }
+                });
+
+            // And map it to the format highcharts uses
+            return $.map(counts, function(val, key) {
+                return {
+                    name: key,
+                    y: val,
+                };
+            });
+        }
+    </script>
+
+    <!-- end of pie chart javascript -->
 
     @endsection

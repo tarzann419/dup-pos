@@ -69,8 +69,8 @@ class ProductController extends Controller
     public function EditProduct($id)
     {
         $product = Product::findOrFail($id);
-        $category = Category::findOrFail($id);
-        $supplier = Supplier::findOrFail($id);
+        $category = Category::all();
+        $supplier = Supplier::all();
 
         return view('backend.product.edit_product', compact('product', 'category', 'supplier'));
     }

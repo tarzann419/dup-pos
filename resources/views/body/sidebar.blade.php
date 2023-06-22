@@ -16,7 +16,7 @@
                 <li>
                     <a href="{{ url('/dashboard') }}" class="active">
                         <i class="mdi mdi-view-dashboard-outline"></i>
-                        <span> Dashboards </span>
+                        <span> Dashboard </span>
                     </a>
                 </li>
 

@@ -55,22 +55,38 @@
                     <div class="noti-scroll" data-simplebar>
 
                         <!-- item-->
+                        @php
+                        use Illuminate\Support\Carbon;
+                        $products = App\Models\Product::whereNotNull('expire_date')->get();
 
+                        $currentDate = Carbon::now();
+                        $expiringSoon = [];
 
-                        <!-- item-->
+                        foreach ($products as $product) {
+                        $expiryDate = Carbon::parse($product->expire_date);
+                        $twoWeeksFromNow = $currentDate->copy()->addWeeks(2);
 
-                        <!-- item-->
+                        if ($expiryDate->greaterThanOrEqualTo($twoWeeksFromNow)) {
+                        $expiringSoon[] = [
+                        'product_name' => $product->product_name,
+                        'expire_date' => $expiryDate
+                        ];
+                        }
+                        }
 
+                        @endphp
 
-                        <!-- item-->
-
-                        <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                        <!-- notifications-->
+                        <a href="{{ route('all.product') }}" class="dropdown-item notify-item">
                             <div class="notify-icon bg-info">
                                 <i class="mdi mdi-comment-account-outline"></i>
                             </div>
-                            <p class="notify-details">Caleb Flakelar commented on Admin
-                                <small class="text-muted">4 days ago</small>
+                            <p class="notify-details">Products that are expiring soon
+                                <small class="text-muted">
+                                    @foreach ($expiringSoon as $expiringProduct)
+                                    {{ $expiringProduct['product_name'] }} - {{ $expiringProduct['expire_date']->format('Y-m-d') }}<br>
+                                    @endforeach
+                                </small>
                             </p>
                         </a>
 
@@ -97,8 +113,8 @@
 
 
             @php
-            $id = Auth::user()->id; 
-            $adminData = App\Models\User::find($id); 
+            $id = Auth::user()->id;
+            $adminData = App\Models\User::find($id);
 
             @endphp
 
@@ -109,7 +125,7 @@
                 <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                     <img src="{{ (!empty($adminData->photo))? url('upload/admin_image/'.$adminData->photo):url('upload/no_image.jpg') }}" alt="user-image" class="rounded-circle">
                     <span class="pro-user-name ms-1">
-                    {{ $adminData->name }} <i class="mdi mdi-chevron-down"></i>
+                        {{ $adminData->name }} <i class="mdi mdi-chevron-down"></i>
                     </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end profile-dropdown ">

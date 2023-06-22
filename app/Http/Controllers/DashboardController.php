@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Category;
 use Carbon\Carbon;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -19,18 +19,22 @@ class DashboardController extends Controller
         $products = Product::all();
 
         $out_of_stock = [];
-        // Loop through each product
+
+        // loop through each product from db
         foreach ($products as $product) {
-            // Get the product's store amount from the database
+            // gt the products store amount from the database
             $productStore = $product->product_store;
 
-            // Check if the product's store amount is equal to the test value
+            // heck if the product_store amount is equal to or less than the test value
             if ($productStore <= $testValue) {
-                // Prompt the user that the product is running out of stock
-
-                $out_of_stock[] = "$product->product_name";
+                // prompt user that the following product is running out of stock
+                $out_of_stock[] = [
+                    'product_name' => $product->product_name,
+                    'product_store' => $productStore
+                ];
             }
         }
+
 
 
 
@@ -42,36 +46,22 @@ class DashboardController extends Controller
 
         $currentDate = Carbon::now();
         $expiringSoon = [];
-        
+
         foreach ($products as $product) {
             $expiryDate = Carbon::parse($product->expire_date);
             $twoWeeksFromNow = $currentDate->copy()->addWeeks(2);
-            
+
             if ($expiryDate->greaterThanOrEqualTo($twoWeeksFromNow)) {
-                $expiringSoon[] = $product->product_name;
+                $expiringSoon[] = [
+                    'product_name' => $product->product_name,
+                    'expire_date' => $expiryDate
+                ];
                 // echo "Expiry Date: " . $expiryDate->format('Y-m-d') . PHP_EOL;
             }
         }
 
-        // // Get the date two weeks before today
-        // $twoWeeksBefore = Carbon::now()->subWeeks(2)->format('Y-m-d');
-
-        // // Loop through the products to check for upcoming expiries
-        // $expiringSoon = [];
-
-        // foreach ($products as $product) {
-        //     $expiryDate = Carbon::parse($product->expire_date)->format('Y-m-d');
-
-        //     if ($expiryDate >= $twoWeeksBefore && $expiryDate <= date('Y-m-d')) {
-
-        //         $expiringSoon[] = $product->product_name;
-
-        //     }
-
-
-        // }
-
-
-        return view('index', compact('out_of_stock', 'expiringSoon'));
+        $products = Product::all();
+        $category = Category::all();
+        return view('index', compact('out_of_stock', 'expiringSoon', 'category', 'products'));
     }
 }

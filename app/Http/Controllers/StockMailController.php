@@ -32,17 +32,17 @@ class StockMailController extends Controller
 
                 $prod_name[] = $product->product_name;
 
-
-                if (!empty($prod_name)) {
-                    
-                    $message = implode(', ', $prod_name);
-                    $data = ['message' => $message];
-                    $to = Auth::user()->email;
-
-                    // Send email with mail markdown
-                    Mail::to($to)->send(new StockControlMail($data));
-                }
             }
+        }
+
+        if (!empty($prod_name)) {
+                    
+            $message = implode(', ', $prod_name);
+            $data = ['message' => $message];
+            $to = Auth::user()->email;
+
+            // Send email with mail markdown
+            Mail::to($to)->send(new StockControlMail($data));
         }
     }
 }

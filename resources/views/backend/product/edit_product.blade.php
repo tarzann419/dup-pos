@@ -120,7 +120,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group mb-3">
                                             <label for="firstname" class="form-label">Buying Date </label>
-                                            <input type="date" name="buying_date" class="form-control " value="{{ $product->buying_date }}">
+                                            <input type="text" name="buying_date" class="form-control " value="{{ $product->buying_date }}">
 
                                         </div>
                                     </div>
@@ -129,7 +129,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group mb-3">
                                             <label for="firstname" class="form-label">Expire Date </label>
-                                            <input type="date" name="expire_date" class="form-control " value="{{ $product->expire_date }}">
+                                            <input type="text" name="expire_date" class="form-control " value="{{ $product->expire_date }}">
 
                                         </div>
                                     </div>

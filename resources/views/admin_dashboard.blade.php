@@ -4,7 +4,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Dashboard |  COVENANT UNIVERSITY SHOPPING MALL </title>
+    <title>Dashboard | COVENANT UNIVERSITY SHOPPING MALL </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
@@ -27,6 +27,9 @@
     <script src="{{ asset('backend/assets/js/head.js') }}"></script>
 
 
+    <script src="{{ asset('custom/highchart.js') }}"></script>
+
+
 
 
     <!-- datatables css -->
@@ -36,7 +39,23 @@
     <link href="{{ asset('backend/assets/libs/datatables.net-select-bs5/css//select.bootstrap5.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- datatables end -->
 
+    <style>
+        /* body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+        } */
 
+        body {
+            font: 90%/1.45em "Helvetica Neue", HelveticaNeue, Verdana, Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #fff;
+        }
+
+        /* body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        } */
+    </style>
 
 
 
