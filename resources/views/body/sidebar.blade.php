@@ -77,7 +77,7 @@
                 <li>
                     <a href="#sidebarContacts" data-bs-toggle="collapse">
                         <i class="mdi mdi-book-account-outline"></i>
-                        <span> Customer Manage </span>
+                        <span>Customer Management </span>
                         <span class="menu-arrow"></span>
                     </a>
                     <div class="collapse" id="sidebarContacts">
@@ -152,6 +152,11 @@
                 </li>
 
 
+<<<<<<< Updated upstream
+=======
+
+
+>>>>>>> Stashed changes
             </ul>
 
         </div>
