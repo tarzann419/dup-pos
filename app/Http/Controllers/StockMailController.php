@@ -30,7 +30,7 @@ class StockMailController extends Controller
             if ($productStore <= $testValue) {
                 // Prompt the user that the product is running out of stock
 
-                $prod_name[] = $product->product_name;
+                $prod_name[] = $product->product_name . ' (' . $productStore . ' left)';
 
             }
         }

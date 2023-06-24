@@ -38,14 +38,14 @@ class ExpiryNotificationController extends Controller
 
             if ($expiryDate->greaterThanOrEqualTo($twoWeeksFromNow)) {
                 // Add the product name to the $expiringSoon array
-                $expiringSoon[] = $product->product_name; 
+                $expiringSoon[] = $product->product_name . ' Expiry Date:  ' . $expiryDate . '. Check Now)';; 
             }
         }
 
 
         // Send notification for products expiring soon
         if (!empty($expiringSoon)) {
-            $message = implode(', ', $expiringSoon);
+            $message = implode("\n", $expiringSoon);
             $data = ['message' => $message];
 
             $to = Auth::user()->email; // Replace with actual email address

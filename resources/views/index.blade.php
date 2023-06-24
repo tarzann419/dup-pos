@@ -117,18 +117,22 @@
 
                 <tbody>
 
-@foreach($products as $item)
+                    @foreach($products as $item)
                     <tr>
                         <td>{{$item->product_name}}</td>
                         <td align="center">
-                            
-                        <span style="color: {{ ($item->product_store <= 20) ? 'red' : 'black' }}">
-    {{ $item->product_store }}
-</span>
-                    
+
+                            <span style="color: {{ ($item->product_store >= 20) ? 'red' : 'black' }}">
+                                {{ $item->product_store }}
+                            </span>
+
                         </td>
                         <td>{{$item['category']['category_name']}}</td>
-                        <td>{{$item->expire_date}}</td>
+
+                        <td style="color: {{ (strtotime($item->expire_date) >= strtotime('+2 weeks')) ? 'red' : 'black' }}">
+                            {{$item->expire_date}}
+                        </td>
+
                         <td>{{$item['supplier']['name']}}</td>
                         <td><span style="color: green;">NGN</span> {{$item->selling_price}}</td>
                     </tr>
