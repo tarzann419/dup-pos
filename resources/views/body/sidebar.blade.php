@@ -152,31 +152,6 @@
                 </li>
 
 
-                <li>
-                    <a href="#sidebarTickets" data-bs-toggle="collapse">
-                        <i class="mdi mdi-lifebuoy"></i>
-                        <span> Expenses </span>
-                        <span class="menu-arrow"></span>
-                    </a>
-                    <div class="collapse" id="sidebarTickets">
-                        <ul class="nav-second-level">
-                            <li>
-                                <a href="{{ route('add.expense') }}">Add Expense</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('today.expense') }}">Today Expense</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('month.expense') }}">Monthly Expense</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('year.expense') }}">Yearly Expense</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-
-
             </ul>
 
         </div>
