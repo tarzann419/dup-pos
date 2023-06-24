@@ -16,6 +16,7 @@ use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\CustomerController;
 use App\Http\Controllers\Backend\EmployeeController;
+use App\Http\Controllers\Backend\StockController;
 use App\Http\Controllers\Backend\SupplierController;
 
 /*
@@ -125,6 +126,13 @@ Route::controller(ProductController::class)->group(function () {
 });
 
 
+
+
+Route::controller(StockController::class)->group(function () {
+    Route::get('/stock/configure', 'StockConfigure')->name('stock.configure');
+    Route::post('/stock/update', 'UpdateStock')->name('update.configure');
+    
+});
 
 
 Route::controller(ExpenseController::class)->group(function () {

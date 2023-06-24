@@ -40,7 +40,10 @@
                     <div class="collapse" id="sidebarStock">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="{{ route('stock.manage') }}">Stock </a>
+                                <a href="{{ route('stock.manage') }}">Stock Details </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('stock.configure') }}">Stock Configure </a>
                             </li>
 
                         </ul>
