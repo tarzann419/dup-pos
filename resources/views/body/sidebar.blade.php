@@ -152,11 +152,6 @@
                 </li>
 
 
-<<<<<<< Updated upstream
-=======
-
-
->>>>>>> Stashed changes
             </ul>
 
         </div>
