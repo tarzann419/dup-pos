@@ -94,7 +94,7 @@
                     <!-- end card -->
 
                     <div class="row mt-3">
-                        <div class="col-12 text-center">
+                        <div class="col-12 text-center">1
                             <p> <a href="{{ route('password.request') }}" class="text-white-50 ms-1">Forgot your password?</a></p>
                         </div> <!-- end col -->
                     </div>

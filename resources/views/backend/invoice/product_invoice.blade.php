@@ -34,13 +34,13 @@
                                 <div class="auth-logo">
                                     <div class="logo logo-dark">
                                         <span class="logo-lg">
-                                            <img src="{{ asset('backend/assets/images/logo-dark.png') }}" alt="" height="22">
+                                        <img src="{{ asset('backend/assets/images/covenant-university-logo-desktop.png') }}" alt="" height="40">
                                         </span>
                                     </div>
 
                                     <div class="logo logo-light">
                                         <span class="logo-lg">
-                                            <img src="{{ asset('backend/assets/images/logo-light.png') }}" alt="" height="22">
+                                        <img src="{{ asset('backend/assets/images/covenant-university-logo-desktop.png') }}" alt="" height="40">
                                         </span>
                                     </div>
                                 </div>
