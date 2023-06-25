@@ -51,13 +51,23 @@ class DashboardController extends Controller
             $expiryDate = Carbon::parse($product->expire_date);
             $twoWeeksFromNow = $currentDate->copy()->addWeeks(2);
 
+            // if ($expiryDate->greaterThanOrEqualTo($twoWeeksFromNow)) {
+            //     $expiringSoon[] = [
+            //         'product_name' => $product->product_name,
+            //         'expire_date' => $expiryDate
+            //     ];
+            //     // echo "Expiry Date: " . $expiryDate->format('Y-m-d') . PHP_EOL;
+            // }
+
             if ($expiryDate->greaterThanOrEqualTo($twoWeeksFromNow)) {
+                // Format the expiry date as "Y-m-d" (e.g., 2023-06-30)
+                $formattedExpiryDate = $expiryDate->format('Y-m-d');
+        
+                // Add the product name and formatted expiry date to the $expiringSoon array
                 $expiringSoon[] = [
                     'product_name' => $product->product_name,
-                    'expire_date' => $expiryDate
-                ];
-                // echo "Expiry Date: " . $expiryDate->format('Y-m-d') . PHP_EOL;
-            }
+                    'expire_date' => $formattedExpiryDate
+                ];            }
         }
 
         $products = Product::all();

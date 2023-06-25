@@ -39,72 +39,7 @@
         </div>
         <!-- end page title -->
 
-        <div class="row">
-            <div class="col-xl-6 col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="d-flex">
-                            <div class="flex-grow-1">
 
-
-
-                                <div class="container">
-
-                                    <table id="basic-datatable" class="display nowrap" width="100%">
-                                        <thead>
-                                            <tr>
-                                                <th>Product Name</th>
-                                                <th>Expiry Date</th>
-                                            </tr>
-                                        </thead>
-
-
-                                        <tbody>
-
-                                            @foreach($out_of_stock as $item)
-                                            <tr>
-                                                <td>{{ $item['product_name'] }}</td>
-                                                <td>{{ $item['product_store'] }}</td>
-
-                                            </tr>
-                                            @endforeach
-                                        </tbody>
-                                    </table>
-                                </div>
-
-
-
-
-
-                            </div>
-                           
-                        </div>
-                    </div><!-- end cardbody -->
-                </div><!-- end card -->
-            </div><!-- end col -->
-
-
-
-
-            <div class="col-xl-6 col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="d-flex">
-                            <div class="flex-grow-1">
-                                <p class="text-truncate font-size-14 mb-2">Unique Visitors</p>
-                                <h4 class="mb-2">29670</h4>
-                                <p class="text-muted mb-0"><span class="text-success fw-bold font-size-12 me-2"><i class="ri-arrow-right-up-line me-1 align-middle"></i>11.7%</span>from previous period</p>
-                            </div>
-                            <div class="avatar-sm">
-                                <span class="avatar-title bg-light text-success rounded-3">
-                                    <i class="mdi mdi-currency-btc font-size-24"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div><!-- end cardbody -->
-                </div><!-- end card -->
-            </div><!-- end col -->
-        </div><!-- end row -->
 
         <!-- <div class="row"> -->
 
@@ -131,7 +66,7 @@
                         <td>{{$item->product_name}}</td>
                         <td align="center">
 
-                            <span style="color: {{ ($item->product_store >= 20) ? 'red' : 'black' }}">
+                            <span style="color: {{ ($item->product_store <= 20) ? 'red' : 'black' }}">
                                 {{ $item->product_store }}
                             </span>
 
@@ -153,11 +88,106 @@
         </div>
 
         <!-- end of pie chart by category -->
-
-
-
     </div>
 
+    <br><br><br>
+
+    <h2 ></h2>
+    <div class="row">
+        <div class="col-xl-6 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex">
+                        <div class="flex-grow-1">
+
+
+                            <!-- stock position table -->
+                            <div class="container">
+
+                                <table id="basic-datatable" class="display nowrap" width="100%">
+                                    <h3>Products that are running out of stock</h3>
+                                    <a href="{{ url('/stock/configure') }}"> <p>Please Check them now!</p> </a>
+                                    <br>
+                                    <thead>
+                                        <tr>
+                                            <th>Product Name</th>
+                                            <th>Stock Posiotion</th>
+                                        </tr>
+                                    </thead>
+
+
+                                    <tbody>
+
+                                        @foreach($out_of_stock as $item)
+                                        <tr>
+                                            <td>{{ $item['product_name'] }}</td>
+                                            <td>{{ $item['product_store'] }}</td>
+
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- end of stock position table -->
+
+
+
+
+                        </div>
+
+                    </div>
+                </div><!-- end cardbody -->
+            </div><!-- end card -->
+        </div><!-- end col -->
+
+
+        <!-- expiry date table -->
+
+        <div class="col-xl-6 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex">
+                        <div class="flex-grow-1">
+                            <div class="container">
+
+                                <table id="basic-datatable" class="table dt-responsive nowrap w-100" width="100%">
+                                    <h3>Products that are running expiring soon</h3>
+                                    <a href="{{ url('/all/product') }}"><p>Please Check them now!</p></a>
+                                    <br>
+                                    <thead>
+                                        <tr>
+                                            <th>Product Name</th>
+                                            <th>Expiry Date</th>
+                                        </tr>
+                                    </thead>
+
+
+                                    <tbody>
+
+                                        @foreach($expiringSoon as $item)
+                                        <tr>
+                                            <td>{{ $item['product_name'] }}</td>
+                                            <td>{{ $item['expire_date'] }}</td>
+
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- expiry date table -->
+
+
+
+
+                        </div>
+
+                    </div>
+                </div><!-- end cardbody -->
+            </div><!-- end card -->
+        </div><!-- end col -->
+    </div><!-- end row -->
 
     <!-- pie chart javascript -->
     <script>

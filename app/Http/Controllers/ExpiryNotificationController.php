@@ -37,8 +37,11 @@ class ExpiryNotificationController extends Controller
             // Check if the expiry date is greater than or equal to two weeks from now
 
             if ($expiryDate->greaterThanOrEqualTo($twoWeeksFromNow)) {
-                // Add the product name to the $expiringSoon array
-                $expiringSoon[] = $product->product_name . ' Expiry Date:  ' . $expiryDate . '. Check Now)';; 
+                // Format the expiry date as "Y-m-d" (e.g., 2023-06-30)
+                $formattedExpiryDate = $expiryDate->format('Y-m-d');
+        
+                // Add the product name and formatted expiry date to the $expiringSoon array
+                $expiringSoon[] = $product->product_name . ' Expiry Date: ' . $formattedExpiryDate . '. Check Now';
             }
         }
 
