@@ -47,38 +47,7 @@
                                 <div class="row">
 
 
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label for="firstname" class="form-label">Customer Image</label>
-                                            <img id="showImage" src="{{ asset($order->customer->image ) }}" class="rounded-circle avatar-lg img-thumbnail" alt="profile-image">
 
-                                        </div>
-                                    </div>
-
-
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label for="firstname" class="form-label">Customer Name</label>
-                                            <p class="text-danger"> {{ $order->customer->name }} </p>
-                                        </div>
-                                    </div>
-
-
-
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label for="firstname" class="form-label">Customer Email</label>
-                                            <p class="text-danger"> {{ $order->customer->email }} </p>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="col-md-6">
-                                        <div class="mb-3">
-                                            <label for="firstname" class="form-label">Customer Phone</label>
-                                            <p class="text-danger"> {{ $order->customer->phone }} </p>
-                                        </div>
-                                    </div>
 
 
                                     <div class="col-md-6">

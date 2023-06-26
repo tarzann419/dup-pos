@@ -2,19 +2,6 @@
     <div class="container-fluid">
         <ul class="list-unstyled topnav-menu float-end mb-0">
 
-            <li class="d-none d-lg-block">
-                <form class="app-search">
-                    <div class="app-search-box dropdown">
-                        <div class="input-group">
-                            <input type="search" class="form-control" placeholder="Search..." id="top-search">
-                            <button class="btn input-group-text" type="submit">
-                                <i class="fe-search"></i>
-                            </button>
-                        </div>
-
-                    </div>
-                </form>
-            </li>
 
             <li class="dropdown d-inline-block d-lg-none">
                 <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
@@ -166,12 +153,7 @@
                 </div>
             </li>
 
-            <li class="dropdown notification-list">
-                <a href="javascript:void(0);" class="nav-link right-bar-toggle waves-effect waves-light">
-                    <i class="fe-settings noti-icon"></i>
-                </a>
-            </li>
-
+            
         </ul>
 
         <!-- LOGO -->

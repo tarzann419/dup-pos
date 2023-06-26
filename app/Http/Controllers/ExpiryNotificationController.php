@@ -37,19 +37,22 @@ class ExpiryNotificationController extends Controller
             // Check if the expiry date is greater than or equal to two weeks from now
 
             if ($expiryDate->greaterThanOrEqualTo($twoWeeksFromNow)) {
-                // Format the expiry date as "Y-m-d" (e.g., 2023-06-30)
+
                 $formattedExpiryDate = $expiryDate->format('Y-m-d');
         
-                // Add the product name and formatted expiry date to the $expiringSoon array
-                $expiringSoon[] = $product->product_name . ' Expiry Date: ' . $formattedExpiryDate . '. Check Now';
+                // add the product name and formatted expiry date to the $expiringSoon array
+                // $expiringSoon[] = $product->product_name . ' Expiry Date: ' . $formattedExpiryDate . '. Check Now';
+                $expiringSoon[] = [
+                    'product_name' => $product->product_name,
+                    'expiry_date' => $formattedExpiryDate,
+                    ] ;
             }
         }
 
 
         // Send notification for products expiring soon
         if (!empty($expiringSoon)) {
-            $message = implode("\n", $expiringSoon);
-            $data = ['message' => $message];
+            $data = ['expiringSoon' => $expiringSoon];
 
             $to = Auth::user()->email; // Replace with actual email address
 

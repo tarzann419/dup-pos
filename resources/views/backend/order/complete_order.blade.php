@@ -31,14 +31,14 @@
                             <thead>
                                 <tr>
                                     <th>Sl</th>
-                                    <th>Image</th>
-                                    <th>Name</th>
+                                    <!-- <th>Image</th> -->
+                                    <!-- <th>Name</th> -->
                                     <th>Order Date</th>
                                     <th>Payment</th>
                                     <th>Invoice</th>
                                     <th>Pay</th>
                                     <th>Status</th>
-                                    <th>Action</th>
+                                    <!-- <th>Action</th> -->
                                 </tr>
                             </thead>
 
@@ -47,17 +47,17 @@
                                 @foreach($orders as $key=> $item)
                                 <tr>
                                     <td>{{ $key+1 }}</td>
-                                    <td> <img src="{{ asset($item->customer->image) }}" style="width:50px; height: 40px;"> </td>
-                                    <td>{{ $item['customer']['name'] }}</td>
+                            {{--<td> <img src="{{ asset($item->customer->image) }}" style="width:50px; height: 40px;"> </td>--}}
+                                    {{--<td>{{ $item['customer']['name'] }}</td>--}}
                                     <td>{{ $item->order_date }}</td>
                                     <td>{{ $item->payment_status }}</td>
                                     <td>{{ $item->invoice_no }}</td>
                                     <td>{{ $item->pay }}</td>
                                     <td> <span class="badge bg-success">{{ $item->order_status }}</span> </td>
-                                    <td>
+                                    {{--<td>
                                         <a href="{{ url('order/invoice-download/'.$item->id) }}" class="btn btn-blue rounded-pill waves-effect waves-light"> PDF Invoice </a>
 
-                                    </td>
+                                    </td>--}}
                                 </tr>
                                 @endforeach
                             </tbody>
