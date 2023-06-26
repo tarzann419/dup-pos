@@ -15,7 +15,7 @@ class StockMailController extends Controller
      static public function stockMail()
     {
         // Define the test value to compare with
-        $testValue = 20;
+        $testValue = 30;
 
         // Get all products from the database
         $products = Product::all();

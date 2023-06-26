@@ -50,7 +50,8 @@
                                 </div>
                             </div>
 <br>
-                            <form method="POST" action="{{ route('login') }}">
+<!-- the route checks the function login from the controller; the login function validates users information from the database  -->
+                            <form method="POST" action="{{ route('login') }}">  
                                 @csrf
 
                                 <div class="mb-3">

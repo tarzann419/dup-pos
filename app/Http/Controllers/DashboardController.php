@@ -47,9 +47,9 @@ class DashboardController extends Controller
         $currentDate = Carbon::now();
         $expiringSoon = [];
 
-        foreach ($products as $product) {
-            $expiryDate = Carbon::parse($product->expire_date);
-            $twoWeeksFromNow = $currentDate->copy()->addWeeks(2);
+        foreach ($products as $product) { //loops through all the products in db and gets all expiry dates for each product in the db
+            $expiryDate = Carbon::parse($product->expire_date); //expire date is coming from database
+            $twoWeeksFromNow = $currentDate->copy()->addWeeks(1);  // this copies current date and adds one week to it to get oneweek from now
 
             // if ($expiryDate->greaterThanOrEqualTo($twoWeeksFromNow)) {
             //     $expiringSoon[] = [
@@ -59,11 +59,11 @@ class DashboardController extends Controller
             //     // echo "Expiry Date: " . $expiryDate->format('Y-m-d') . PHP_EOL;
             // }
 
-            if ($expiryDate->greaterThanOrEqualTo($twoWeeksFromNow)) {
+            if ($expiryDate->greaterThanOrEqualTo($twoWeeksFromNow)) { //means products are expiring in the next two weeks
                 // Format the expiry date as "Y-m-d" (e.g., 2023-06-30)
-                $formattedExpiryDate = $expiryDate->format('Y-m-d');
+                $formattedExpiryDate = $expiryDate->format('Y-m-d'); //save products >= two weeks from now
         
-                // Add the product name and formatted expiry date to the $expiringSoon array
+                // Add the product name and formatted expiry date to the $expiringSoon array after looping through
                 $expiringSoon[] = [
                     'product_name' => $product->product_name,
                     'expire_date' => $formattedExpiryDate
@@ -72,6 +72,6 @@ class DashboardController extends Controller
 
         $products = Product::all();
         $category = Category::all();
-        return view('index', compact('out_of_stock', 'expiringSoon', 'category', 'products'));
+        return view('index', compact('out_of_stock', 'expiringSoon', 'category', 'products')); //
     }
 }

@@ -40,7 +40,7 @@ class CustomerController extends Controller
 
         Customer::insert([
 
-            'name' => $request->name,
+            'name' => $request->name, //'name' => $request->name: This assigns the value of the name field from the $request object to the 'name' column in the database table.
             'email' => $request->email,
             'phone' => $request->phone,
             // 'address' => $request->address,

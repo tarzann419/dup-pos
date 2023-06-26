@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use App\Models\Supplier;
 use Intervention\Image\Facades\Image;
 
+/*
 class ExpenseController extends Controller
 {
     public function AddExpense()
@@ -79,4 +80,4 @@ class ExpenseController extends Controller
         $yearexpense = Expense::where('month',$year)->get();
         return view('backend.expense.year_expense',compact('yearexpense'));
     }
-}
+}*/

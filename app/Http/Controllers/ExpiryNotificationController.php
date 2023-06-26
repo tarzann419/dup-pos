@@ -32,7 +32,7 @@ class ExpiryNotificationController extends Controller
             $expiryDate = Carbon::parse($product->expire_date);
 
             // Calculate the date two weeks from the current date
-            $twoWeeksFromNow = $currentDate->copy()->addWeeks(2); 
+            $twoWeeksFromNow = $currentDate->copy()->addWeeks(1); 
 
             // Check if the expiry date is greater than or equal to two weeks from now
 

@@ -30,7 +30,7 @@ class AuthenticatedSessionController extends Controller
     {
         $request->authenticate();
 
-        // immediately after login, the function runs to check the commands
+        // immediately after login, the function runs to check the commands; perform specific actions immediately after login. After that, it regenerates the session, sets a notification message in an array, and redirects the user to the intended home page with the notification data.
         StockMailController::stockMail();
         ExpiryNotificationController::sendExpiryNotification();
 
@@ -49,9 +49,9 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
-        Auth::guard('web')->logout();
+        Auth::guard('web')->logout(); //It logs out the user by calling the logout() method on the 'web' guard of the Auth facade. 
 
-        $request->session()->invalidate();
+        $request->session()->invalidate(); //It then invalidates the session, regenerates a new session token, and redirects the user to the root path ('/').
 
         $request->session()->regenerateToken();
 
