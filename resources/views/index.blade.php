@@ -1,4 +1,4 @@
-@extends('admin_dashboard') 
+@extends('admin_dashboard')
 @section('admin')
 
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -9,7 +9,7 @@
 <meta charset=utf-8 />
 
 
-<style> 
+<style>
     body {
         font: 90%/1.45em "Helvetica Neue", HelveticaNeue, Verdana, Arial, Helvetica, sans-serif;
         margin: 0;
@@ -65,7 +65,7 @@
                     <tr>
                         <td>{{$item->product_name}}</td>
                         <td align="center">
-<!-- if products <=20 it'll be red if its >=20 it'll be black -->
+
                             <span style="color: {{ ($item->product_store <= 20) ? 'red' : 'black' }}">
                                 {{ $item->product_store }}
                             </span>
@@ -151,7 +151,8 @@
                         <div class="flex-grow-1">
                             <div class="container">
 
-                                <tablProducts that are expiring soon</h3>
+                                <table id="basic-datatable" class="table dt-responsive nowrap w-100" width="100%">
+                                    <h3>Products that are running expiring soon</h3>
                                     <a href="{{ url('/all/product') }}"><p>Please Check them now!</p></a>
                                     <br>
                                     <thead>
@@ -159,8 +160,7 @@
                                             <th>Product Name</th>
                                             <th>Expiry Date</th>
                                         </tr>
-                                    </thead>e id="basic-datatable" class="table dt-responsive nowrap w-100" width="100%">
-                                    <h3>
+                                    </thead>
 
 
                                     <tbody>
