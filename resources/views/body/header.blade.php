@@ -21,86 +21,7 @@
             </li>
 
 
-            <li class="dropdown notification-list topbar-dropdown">
-                <a class="nav-link dropdown-toggle waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                    <i class="fe-bell noti-icon"></i>
-                    <span class="badge bg-danger rounded-circle noti-icon-badge">9</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-end dropdown-lg">
-
-                    <!-- item-->
-                    <div class="dropdown-item noti-title">
-                        <h5 class="m-0">
-                            <span class="float-end">
-                                <a href="" class="text-dark">
-                                    <small>Clear All</small>
-                                </a>
-                            </span>Notification
-                        </h5>
-                    </div>
-
-                    <div class="noti-scroll" data-simplebar>
-
-                        <!-- item-->
-                        @php
-                        use Illuminate\Support\Carbon;
-                        $products = App\Models\Product::whereNotNull('expire_date')->get();
-
-                        $currentDate = Carbon::now();
-                        $expiringSoon = [];
-
-                        foreach ($products as $product) {
-                        $expiryDate = Carbon::parse($product->expire_date);
-                        $twoWeeksFromNow = $currentDate->copy()->addWeeks(2);
-
-                        if ($expiryDate->greaterThanOrEqualTo($twoWeeksFromNow)) {
-                        $expiringSoon[] = [
-                        'product_name' => $product->product_name,
-                        'expire_date' => $expiryDate
-                        ];
-                        }
-                        }
-
-
-
-
-                        @endphp
-
-                        <!-- notifications-->
-                        <a href="{{ route('all.product') }}" class="dropdown-item notify-item">
-                            <div class="notify-icon bg-info">
-                                <i class="mdi mdi-comment-account-outline"></i>
-                            </div>
-                            <p class="notify-details">Products that are expiring soon
-                                <small class="text-muted">
-                                    @foreach ($expiringSoon as $expiringProduct)
-                                    {{ $expiringProduct['product_name'] }} - {{ $expiringProduct['expire_date']->format('Y-m-d') }}<br>
-                                    @endforeach
-                                </small>
-                            </p>
-                        </a>
-
-                        <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item notify-item">
-                            <div class="notify-icon bg-secondary">
-                                <i class="mdi mdi-heart"></i>
-                            </div>
-                            <p class="notify-details">Carlos Crouch liked
-                                <b>Admin</b>
-                                <small class="text-muted">13 days ago</small>
-                            </p>
-                        </a>
-                    </div>
-
-                    <!-- All-->
-                    <a href="javascript:void(0);" class="dropdown-item text-center text-primary notify-item notify-all">
-                        View all
-                        <i class="fe-arrow-right"></i>
-                    </a>
-
-                </div>
-            </li>
-
+        
 
             @php
             $id = Auth::user()->id;
@@ -131,10 +52,7 @@
                     </a>
 
                     <!-- item-->
-                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                        <i class="fe-settings"></i>
-                        <span>Settings</span>
-                    </a>
+                    
 
                     <!-- item-->
                     <a href="{{ route('change.password') }}" class="dropdown-item notify-item">

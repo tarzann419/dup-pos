@@ -31,8 +31,7 @@
                             <thead>
                                 <tr>
                                     <th>Sl</th>
-                                    <!-- <th>Image</th> -->
-                                    <!-- <th>Name</th> -->
+                                  
                                     <th>Order Date</th>
                                     <th>Payment</th>
                                     <th>Invoice</th>
@@ -47,8 +46,7 @@
                                 @foreach($orders as $key=> $item)
                                 <tr>
                                     <td>{{ $key+1 }}</td>
-                                    {{--<td> <img src="{{ asset($item->customer->image) }}" style="width:50px; height: 40px;"> </td>--}}
-                                    {{--<td>{{ $item['customer']['name'] }}</td>--}}
+                                    
                                     <td>{{ $item->order_date }}</td>
                                     <td>{{ $item->payment_status }}</td>
                                     <td>{{ $item->invoice_no }}</td>

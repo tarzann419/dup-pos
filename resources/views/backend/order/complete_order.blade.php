@@ -54,10 +54,7 @@
                                     <td>{{ $item->invoice_no }}</td>
                                     <td>{{ $item->pay }}</td>
                                     <td> <span class="badge bg-success">{{ $item->order_status }}</span> </td>
-                                    {{--<td>
-                                        <a href="{{ url('order/invoice-download/'.$item->id) }}" class="btn btn-blue rounded-pill waves-effect waves-light"> PDF Invoice </a>
-
-                                    </td>--}}
+                                   
                                 </tr>
                                 @endforeach
                             </tbody>

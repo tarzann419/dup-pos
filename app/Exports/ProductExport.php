@@ -16,7 +16,7 @@ class ProductExport implements FromCollection, WithHeadings, WithStyles
      */
     public function collection()
     {
-        return Product::select('product_name', 'category_id', 'supplier_id', 'product_code', 'product_garage', 'product_image', 'product_store', 'buying_date', 'expire_date', 'buying_price', 'selling_price')->get();
+        return Product::select('product_name', 'category_id', 'supplier_id', 'product_code', 'product_image', 'product_store', 'buying_date', 'expire_date', 'buying_price', 'selling_price')->get();
     }
 
 
@@ -27,7 +27,7 @@ class ProductExport implements FromCollection, WithHeadings, WithStyles
             'Category_id',
             'supplier_id',
             'product_code',
-            'product_garage',
+            //'product_garage',
             'Product Image',
             'product_store',
             'buying_date',
