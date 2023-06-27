@@ -115,7 +115,7 @@
                                     <thead>
                                         <tr>
                                             <th>Product Name</th>
-                                            <th>Stock Posiotion</th>
+                                            <th>Stock Position</th>
                                         </tr>
                                     </thead>
 

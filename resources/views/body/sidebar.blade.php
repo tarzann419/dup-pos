@@ -21,6 +21,9 @@
                 </li>
 
 
+                
+                <li class="menu-title">POS</li>
+
                 <li>
                     <a href="{{ route('pos') }}">
                         <i class="mdi mdi-view-dashboard-outline"></i>
@@ -28,7 +31,32 @@
                     </a>
                 </li>
 
-                <li class="menu-title mt-2">Apps</li>
+
+                                
+                <li>
+                    <a href="#sidebarOrders" data-bs-toggle="collapse">
+                        <i class="fe-gift"></i>
+                        <span> Orders </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarOrders">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{ route('pending.order') }}">Pending Orders </a>
+                            </li>
+
+                            <li>
+                                <a href="{{ route('complete.order') }}">Complete Orders </a>
+                            </li>
+
+                            
+
+                        </ul>
+                    </div>
+                </li>
+
+
+                <li class="menu-title mt-2">Management</li>
 
 
                 <li>
@@ -50,28 +78,7 @@
                     </div>
                 </li>
 
-                
-                <li>
-                    <a href="#sidebarOrders" data-bs-toggle="collapse">
-                        <i class="mdi mdi-book-account-outline"></i>
-                        <span> Orders </span>
-                        <span class="menu-arrow"></span>
-                    </a>
-                    <div class="collapse" id="sidebarOrders">
-                        <ul class="nav-second-level">
-                            <li>
-                                <a href="{{ route('pending.order') }}">Pending Orders </a>
-                            </li>
 
-                            <li>
-                                <a href="{{ route('complete.order') }}">Complete Orders </a>
-                            </li>
-
-                    
-
-                        </ul>
-                    </div>
-                </li>
                 <li>
                     <a href="#sidebarContacts" data-bs-toggle="collapse">
                         <i class="mdi mdi-book-account-outline"></i>

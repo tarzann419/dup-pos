@@ -16,6 +16,7 @@
                         </ol>
                     </div>
                     <h4 class="page-title">Product Configure</h4>
+                    <p>Update stock position</p>
                 </div>
             </div>
         </div>

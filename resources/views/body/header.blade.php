@@ -78,7 +78,7 @@
         <div class="logo-box">
             <a href="index.html" class="logo logo-dark text-center">
                 <span class="logo-sm">
-                    <img src="{{ asset('backend/assets/images/covenant-university-logo-desktop.png') }}" alt="" height="40">
+                    <img src="{{ asset('backend/assets/images/covenant-university-logo-desktop.png') }}" alt="" height="20">
                     <!-- <span class="logo-lg-text-light">cushopping mall</span> -->
                 </span>
                 <span class="logo-lg">
@@ -89,7 +89,7 @@
 
             <a href="index.html" class="logo logo-light text-center">
                 <span class="logo-sm">
-                    <img src="{{ asset('backend/assets/images/covenant-university-logo-desktop.png') }}" alt="" height="40">
+                    <img src="{{ asset('backend/assets/images/covenant-university-logo-desktop.png') }}" alt="" height="20">
                 </span>
                 <span class="logo-lg">
                     <img src="{{ asset('backend/assets/images/covenant-university-logo-desktop.png') }}" alt="" height="40">
