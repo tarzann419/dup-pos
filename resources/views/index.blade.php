@@ -60,19 +60,23 @@
 
 
                 <tbody>
+                    <!-- stores all product data from db in a table -->
 
                     @foreach($products as $item)
                     <tr>
-                        <td>{{$item->product_name}}</td>
+                        <!-- stores productname from db as item variable -->
+                        <td>{{$item->product_name}}</td> 
                         <td align="center">
 
                             <span style="color: {{ ($item->product_store <= 20) ? 'red' : 'black' }}">
+                            <!-- stores productstore from db as item variable -->
                                 {{ $item->product_store }}
                             </span>
 
                         </td>
+<!--  stores category from db as item variable  -->
                         <td>{{$item['category']['category_name']}}</td>
-
+<!--  stores expiredate from db as item variable  -->
                         <td> {{$item->expire_date}} </td>
 
                         {{-- <td style="color: {{ (strtotime($item->expire_date) >= strtotime('+2 weeks')) ? 'red' : 'black' }}">
@@ -194,7 +198,7 @@
         $(document).ready(function() {
             var table = $("#example").DataTable();
 
-            var myChart = Highcharts.chart("container", {
+            var myChart = Highcharts.chart("container", { //highchart library
                 chart: {
                     type: "pie"
                 },
@@ -202,7 +206,7 @@
                     text: "Stock Position Based On Category"
                 },
                 series: [{
-                    data: chartData(table)
+                    data: chartData(table) // function retrieves the data from the DataTable and processes it to the format expected by Highcharts.
                 }]
             });
 
@@ -217,7 +221,7 @@
 
             // Count the number of entries for each office
             table
-                .column(2, {
+                .column(2, {  // This code retrieves the data from the third column (index 2) of the DataTable, 
                     search: 'applied'
                 })
                 .data()

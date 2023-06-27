@@ -18,7 +18,7 @@ class RegisteredUserController extends Controller
     /**
      * Display the registration view.
      */
-    public function create(): View
+    public function create(): View //returns registered view
     {
         return view('auth.register');
     }
@@ -28,7 +28,7 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request): RedirectResponse //validates data first before storing it in the db using create function
     {
         $request->validate([ //store new users name in database
             'name' => ['required', 'string', 'max:255'],
@@ -37,7 +37,7 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        $user = User::create([ //creates new user
+        $user = User::create([ //creates new user; user is used to access database
             'name' => $request->name,
             'email' => $request->email,
             'phone' => $request->phone,

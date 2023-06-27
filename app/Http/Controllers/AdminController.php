@@ -102,7 +102,7 @@ class AdminController extends Controller
             'alert-type' => 'success'
         );
 
-        return back()->with($notification);
+        return back()->with($notification); //send notification after update
 
     }
 }

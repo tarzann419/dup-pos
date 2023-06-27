@@ -5,7 +5,7 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
-use Illuminate\Mail\Mailables\Content;
+use Illuminate\Mail\Mailables\Content; //mailable class is laravel's conveient way for sending mail.
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
@@ -69,8 +69,6 @@ class ExpiryNotification extends Mailable
 
         return $this->markdown('emails.expiryControl')->with('data', $this->data);
 
-        // return $this->from('danogbo0@gmail.com')
-        //     ->markdown('emails.expiryControl')
-        //     ->with('products', $this->data);
+        
     }
 }
